@@ -27,7 +27,7 @@ class ChallengeAdapter(private val list: List<Quiz>) :
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.binding.apply {
 
-            DataManager.quizzes.random().apply {
+            DataManager.quizzes[position].apply {
                 val list = mutableListOf<String>()
                 list.addAll(incorrectAnswers)
                 list.add(correctAnswer)
@@ -40,6 +40,7 @@ class ChallengeAdapter(private val list: List<Quiz>) :
                         }
                     }
                 }
+
 
                 holder.binding.question.text = question
                 optionOne.apply {

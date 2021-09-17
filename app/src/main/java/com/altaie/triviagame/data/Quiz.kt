@@ -20,5 +20,5 @@ data class Quiz(
 
     @SerializedName("incorrect_answers")
     val incorrectAnswers: List<String>,
-    val disabled: Boolean = false
+    var disabled: Boolean = false
 )
