@@ -9,4 +9,5 @@
     <dimen name="padding1x">8dp</dimen>
     <dimen name="text2x">16sp</dimen>
     <dimen name="text3x">24sp</dimen>
+    <dimen name="txt1x">8dp</dimen>
 </resources>

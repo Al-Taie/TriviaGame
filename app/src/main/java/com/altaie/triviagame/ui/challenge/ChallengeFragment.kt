@@ -20,9 +20,9 @@ class ChallengeFragment : BaseFragment<FragmentChallengeBinding>(), UpdateAdapte
     }
 
     override fun callBack() {
-        binding.startButton.setOnClickListener {
-            initRequest()
-        }
+//        binding.startButton.setOnClickListener {
+//            initRequest()
+//        }
     }
 
     override val inflate: (LayoutInflater, ViewGroup?, attachToRoot: Boolean) -> FragmentChallengeBinding
@@ -52,7 +52,7 @@ class ChallengeFragment : BaseFragment<FragmentChallengeBinding>(), UpdateAdapte
             override fun onResponse(call: Call, response: Response) {
                 response.body?.let { Parser.parse(it.string()) }
                 activity?.runOnUiThread {
-                    binding.challengeRecycler.adapter = ChallengeAdapter(DataManager.quizzes)
+//                    binding.challengeRecycler.adapter = ChallengeAdapter(DataManager.quizzes)
                 }
             }
         })

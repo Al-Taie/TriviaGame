@@ -12,7 +12,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginHorizontal="@dimen/margin3x"
-        android:layout_marginTop="60dp"
+        android:layout_marginTop="40dp"
 
         android:layout_marginBottom="100dp"
         android:background="@drawable/challenge_layer"
@@ -22,21 +22,41 @@
         app:layout_constraintTop_toTopOf="parent" >
 
 
-        <TextView
+        <com.kofigyan.stateprogressbar.StateProgressBar
             android:id="@+id/progress"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="progress"
+            app:spb_currentStateNumber="three"
+            app:spb_maxStateNumber="four"
+            app:spb_stateBackgroundColor="@color/gray"
+            app:spb_stateForegroundColor="@color/purple"
+            app:spb_stateNumberBackgroundColor="@color/white"
+            app:spb_stateNumberForegroundColor="@color/white"
+            app:spb_currentStateDescriptionColor="@color/purple"
+            app:spb_stateDescriptionColor="#808080"
+            app:spb_animateToCurrentProgressState="true"
+            app:spb_checkStateCompleted="true"
             android:layout_marginTop="@dimen/margin2x"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
+
+        <com.bcgdv.asia.lib.ticktock.TickTockView
             android:id="@+id/timer"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="timer"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_gravity="center_horizontal"
+            app:tickAutoFitText="true"
+            app:tickMiddleColor="#ffffff"
+            app:tickMoveCounterClockwise="true"
+            app:tickTextColor="@color/black"
+            app:tickText="9"
+            app:tickTextSize="4sp"
+            app:tickDotRadius="6dp"
+            app:tickEmptyRingColor="@android:color/white"
+            app:tickFillRingColor="@color/purple"
+            app:tickRingThickness="3dp"
             android:layout_marginTop="@dimen/margin2x"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -137,7 +157,7 @@
         android:gravity="center"
         android:padding="@dimen/padding1x"
         android:textSize="@dimen/txt2x"
-        app:barrierMargin="@dimen/margin3x"
+
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
