@@ -3,7 +3,10 @@
 
 <!--    margin -->
     <dimen name="margin2x">16dp</dimen>
-    <dimen name="margin3x">24dp</dimen>
     <dimen name="txt2x">16sp</dimen>
     <dimen name="text1x">12sp</dimen>
+    <dimen name="margin3x">24dp</dimen>
+    <dimen name="padding1x">8dp</dimen>
+    <dimen name="text2x">16sp</dimen>
+    <dimen name="text3x">24sp</dimen>
 </resources>

@@ -5,7 +5,6 @@ import com.altaie.triviagame.R
 import com.altaie.triviagame.data.DataManager
 import com.altaie.triviagame.databinding.ActivityMainBinding
 import com.altaie.triviagame.ui.base.BaseActivity
-import com.altaie.triviagame.ui.challenge.ChallengeFragment
 import com.altaie.triviagame.ui.home.HomeFragment
 import com.altaie.triviagame.ui.interfaces.ItemListener
 import com.altaie.triviagame.ui.result.ResultFragment
@@ -17,14 +16,13 @@ class MainActivity : BaseActivity<ActivityMainBinding>(), ItemListener {
         get() = R.style.Theme_TriviaGame
 
     override fun setup() {
-        initViewPager()
         initTabLayout()
     }
 
-    private fun initViewPager() {
-        val fragmentsList = listOf(HomeFragment(this), ChallengeFragment(), ResultFragment())
-        binding.viewPager.adapter = ViewPagerAdapter(this, fragmentsList = fragmentsList)
-    }
+//    private fun initViewPager() {
+//        val fragmentsList = listOf(HomeFragment(this), ChallengeFragment(), ResultFragment())
+//        binding.viewPager.adapter = ViewPagerAdapter(this, fragmentsList = fragmentsList)
+//    }
 
     override fun callBack() {
 

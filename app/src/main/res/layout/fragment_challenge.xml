@@ -11,7 +11,7 @@
         android:id="@+id/constraintLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginHorizontal="24dp"
+        android:layout_marginHorizontal="@dimen/margin3x"
         android:layout_marginTop="60dp"
 
         android:layout_marginBottom="100dp"
@@ -48,14 +48,98 @@
             android:layout_height="wrap_content"
             android:text="catogory"
             android:textColor="@color/gray"
-            android:textSize="@dimen/text1x"
+            android:textSize="@dimen/text2x"
              android:layout_marginTop="@dimen/margin2x"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/timer" />
+
+        <TextView
+            android:id="@+id/question"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:textSize="@dimen/text3x"
+            android:layout_margin="@dimen/margin2x"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/category"
+            tools:text="what is the number of teeth \n in a person?"
+            />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/option_one"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:text="option1"
+            android:textAllCaps="false"
+            android:background="@drawable/option_button_shape"
+            android:layout_marginHorizontal="@dimen/margin2x"
+            android:layout_marginTop="@dimen/margin3x"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/question" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/option_two"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:text="option2"
+            android:textAllCaps="false"
+            android:background="@drawable/option_button_shape"
+            android:layout_marginHorizontal="@dimen/margin2x"
+            android:layout_marginTop="@dimen/margin2x"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/option_one" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/option_three"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:text="option3"
+            android:textAllCaps="false"
+            android:background="@drawable/option_button_shape"
+            android:layout_marginHorizontal="@dimen/margin2x"
+            android:layout_marginTop="@dimen/margin2x"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/option_two" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/option_four"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:text="option4"
+            android:textAllCaps="false"
+            android:background="@drawable/option_button_shape"
+            android:layout_marginHorizontal="@dimen/margin2x"
+            android:layout_marginTop="@dimen/margin2x"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/option_three" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 
 
-
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/hint_shape"
+        android:layout_margin="@dimen/margin3x"
+        android:fontFamily="sans-serif"
+        android:text="please solve question before\n time up"
+        android:drawableStart="@drawable/ic_error"
+        android:textColor="@color/white"
+        android:gravity="center"
+        android:padding="@dimen/padding1x"
+        android:textSize="@dimen/txt2x"
+        app:barrierMargin="@dimen/margin3x"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout" />
 </androidx.constraintlayout.widget.ConstraintLayout>
