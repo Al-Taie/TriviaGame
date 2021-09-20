@@ -16,7 +16,6 @@ import java.io.IOException
 
 class HomeFragment(private val listener: ItemListener) : BaseFragment<FragmentHomeBinding>() {
     override fun setup() {
-        binding.categoryRecycler.adapter = CategoryAdapter(DataManager.categories, listener)
         getCategory()
     }
 
@@ -34,7 +33,9 @@ class HomeFragment(private val listener: ItemListener) : BaseFragment<FragmentHo
                 response.body?.string().let { categorySting ->
                     val result = Gson().fromJson(categorySting, NationalCategoryResponse::class.java)
                     Log.v("category",result.categories.toString())
-
+                    activity?.runOnUiThread {
+                        binding.categoryRecycler.adapter = CategoryAdapter(result.categories, listener)
+                    }
 
                 }
             }
