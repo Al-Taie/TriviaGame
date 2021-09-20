@@ -10,8 +10,6 @@ import com.altaie.triviagame.ui.interfaces.ItemListener
 
 class HomeFragment(private val listener: ItemListener) : BaseFragment<FragmentHomeBinding>() {
     override fun setup() {
-        val categories = resources.getStringArray(R.array.categories)
-        DataManager.initCategories(categories = categories)
         binding.categoryRecycler.adapter = CategoryAdapter(DataManager.categories, listener)
     }
 
@@ -19,6 +17,4 @@ class HomeFragment(private val listener: ItemListener) : BaseFragment<FragmentHo
 
     override val inflate: (LayoutInflater, ViewGroup?, attachToRoot: Boolean) -> FragmentHomeBinding
         get() = FragmentHomeBinding::inflate
-
-
 }
