@@ -16,32 +16,15 @@ class MainActivity : BaseActivity<ActivityMainBinding>(), ItemListener {
     override val theme: Int
         get() = R.style.Theme_TriviaGame
 
-    override fun setup() {
-        initViewPager()
-    }
+    override fun setup() {}
 
-    private fun initViewPager() {
-        val fragmentsList = listOf(HomeFragment(this), ChallengeFragment(), ResultFragment())
-        binding.viewPager.adapter = ViewPagerAdapter(this, fragmentsList = fragmentsList)
-    }
-
-    override fun callBack() {
-
-    }
+    override fun callBack() {}
 
     override val inflate: (LayoutInflater) -> ActivityMainBinding
         get() = ActivityMainBinding::inflate
 
     override fun onClickItem(name: String) {
         DataManager.category = name
-        binding.viewPager.currentItem = 1
     }
-
-//    private fun loadImage(url: String) {
-//        Glide.with(this).load(url)
-//            .placeholder(R.drawable.ic_baseline_downloading_24)
-//            .error(R.drawable.ic_baseline_error_outline_24)
-//            .into(binding.imageView)
-//    }
 
 }

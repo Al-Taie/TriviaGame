@@ -10,7 +10,7 @@ import com.altaie.triviagame.data.Quiz
 import com.altaie.triviagame.databinding.CategoryCardItemBinding
 import com.altaie.triviagame.ui.interfaces.ItemListener
 
-class CategoryAdapter(private val list: List<Category>, private val listener: ItemListener) :
+class CategoryAdapter(private val list: List<Category>, private val listener: ItemListener?=null) :
     RecyclerView.Adapter<CategoryAdapter.ViewHolder>() {
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
@@ -28,7 +28,7 @@ class CategoryAdapter(private val list: List<Category>, private val listener: It
             with(list[position]) {
                 categoryName.text = name
                 categoryImage.setImageResource(imageId)
-                categoryCard.setOnClickListener { listener.onClickItem(name = name) }
+                categoryCard.setOnClickListener { listener?.onClickItem(name = name) }
             }
         }
     }

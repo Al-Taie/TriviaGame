@@ -3,18 +3,14 @@ package com.altaie.triviagame.ui.home
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import com.altaie.triviagame.R
-import com.altaie.triviagame.data.DataManager
-import com.altaie.triviagame.data.category.Category
 import com.altaie.triviagame.data.category.NationalCategoryResponse
 import com.altaie.triviagame.databinding.FragmentHomeBinding
 import com.altaie.triviagame.ui.base.BaseFragment
-import com.altaie.triviagame.ui.interfaces.ItemListener
 import com.google.gson.Gson
 import okhttp3.*
 import java.io.IOException
 
-class HomeFragment(private val listener: ItemListener) : BaseFragment<FragmentHomeBinding>() {
+class HomeFragment : BaseFragment<FragmentHomeBinding>() {
     override fun setup() {
         getCategory()
     }
@@ -32,9 +28,15 @@ class HomeFragment(private val listener: ItemListener) : BaseFragment<FragmentHo
             override fun onResponse(call: Call, response: Response) {
                 response.body?.string().let { categorySting ->
                     val result = Gson().fromJson(categorySting, NationalCategoryResponse::class.java)
-                    Log.v("category",result.categories.toString())
+                    val categories = result.categories.map { category ->
+                        category.apply {
+                            name = name.removePrefix("Entertainment: ")
+                                       .removePrefix("Science: ")
+                        }
+                    }
+
                     activity?.runOnUiThread {
-                        binding.categoryRecycler.adapter = CategoryAdapter(result.categories, listener)
+                        binding.categoryRecycler.adapter = CategoryAdapter(categories)
                     }
 
                 }
