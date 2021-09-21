@@ -3,9 +3,12 @@ package com.altaie.triviagame.ui.home
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
+import com.altaie.triviagame.R
 import com.altaie.triviagame.data.category.NationalCategoryResponse
 import com.altaie.triviagame.databinding.FragmentHomeBinding
 import com.altaie.triviagame.ui.base.BaseFragment
+import com.altaie.triviagame.ui.challenge.ChallengeFragment
 import com.google.gson.Gson
 import okhttp3.*
 import java.io.IOException
@@ -15,7 +18,14 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
         getCategory()
     }
 
-    override fun callBack() {}
+    override fun callBack() {
+        binding.apply {
+            next.setOnClickListener {
+                val fragment = ChallengeFragment()
+                replaceFragment(fragment = fragment)
+            }
+        }
+    }
 
     private fun getCategory() {
         val url = "https://opentdb.com/api_category.php"
@@ -47,4 +57,12 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
 
     override val inflate: (LayoutInflater, ViewGroup?, attachToRoot: Boolean) -> FragmentHomeBinding
         get() = FragmentHomeBinding::inflate
+
+    private fun replaceFragment(fragment: Fragment) {
+        activity?.let {
+            it.supportFragmentManager.beginTransaction().apply {
+                replace(R.id.fragment_container, fragment)
+            }.commit()
+        }
+    }
 }
