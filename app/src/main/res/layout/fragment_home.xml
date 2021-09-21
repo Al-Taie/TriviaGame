@@ -8,47 +8,19 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".ui.home.HomeFragment">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="326dp"
-        android:layout_height="184dp"
-        android:layout_marginTop="16dp"
+
+    <ImageView
+        android:id="@+id/title"
+        android:layout_width="286dp"
+        android:layout_height="164dp"
+        android:layout_marginTop="36dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-
-        <ImageView
-            android:id="@+id/title"
-            android:layout_width="179dp"
-            android:layout_height="230dp"
-            android:src="@drawable/t"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-
-            />
-
-        <TextView
-            android:id="@+id/title_sub"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginBottom="4dp"
-            android:text="@string/trivia_game"
-            android:textColor="#B066107E"
-            android:textSize="35sp"
-            android:textStyle="italic"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.772"
-            app:layout_constraintStart_toStartOf="@+id/title" />
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
+        app:layout_constraintTop_toTopOf="parent" />
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/category_recycler"
-        android:layout_width="match_parent"
+        android:id="@+id/recycler_category"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="16dp"
         android:layout_marginRight="16dp"
@@ -58,129 +30,151 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.379"
+        app:layout_constraintVertical_bias="0.353"
         app:layout_goneMarginLeft="16dp"
+        tools:itemCount="3"
+
         tools:listitem="@layout/category_card_item" />
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView"
+        android:layout_width="380dp"
+        android:layout_height="120dp"
+        android:layout_marginTop="16dp"
+        android:backgroundTint="#4BFFFFFF"
+        app:cardCornerRadius="8dp"
+        app:layout_constraintEnd_toEndOf="@+id/recycler_category"
+        app:layout_constraintHorizontal_bias="0.516"
+        app:layout_constraintStart_toStartOf="@+id/recycler_category"
+        app:layout_constraintTop_toBottomOf="@+id/recycler_category">
 
-    <TextView
-        android:id="@+id/text_level"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="44dp"
-        android:gravity="center"
-        android:text="@string/levels_of_game"
-        android:textColor="#B066107E"
-        android:textSize="28sp"
-        android:textStyle="bold|italic"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/category_recycler" />
+        <TextView
+            android:id="@+id/text_level"
 
-    <RadioGroup
-        android:id="@+id/game_level"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:orientation="horizontal"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.494"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/text_level">
-
-        <com.google.android.material.radiobutton.MaterialRadioButton
-            android:id="@+id/Easy"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="8dp"
-            android:text="Easy"
-            android:textColor="#B066107E"
-            android:textSize="20sp"
-            android:textStyle="italic" />
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="10dp"
+            android:text="@string/levels_of_game"
+            android:textColor="#000000"
+            android:textSize="28sp"
+            android:textStyle="bold" />
 
-        <com.google.android.material.radiobutton.MaterialRadioButton
-            android:id="@+id/middle"
+        <RadioGroup
+            android:id="@+id/game_level"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="8dp"
-            android:text="middle"
-            android:textColor="#B066107E"
-            android:textSize="20sp"
-            android:textStyle="italic" />
+            android:layout_gravity="center"
+            android:layout_marginTop="16dp"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.494"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/text_level">
 
-        <com.google.android.material.radiobutton.MaterialRadioButton
-            android:id="@+id/Difficult"
+            <com.google.android.material.radiobutton.MaterialRadioButton
+                android:id="@+id/Easy"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:text="Easy"
+                android:textColor="#000000"
+                android:textSize="20sp"
+                android:textStyle="italic" />
+
+            <com.google.android.material.radiobutton.MaterialRadioButton
+                android:id="@+id/middle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:text="middle"
+                android:textColor="#000000"
+                android:textSize="20sp"
+                android:textStyle="italic" />
+
+            <com.google.android.material.radiobutton.MaterialRadioButton
+                android:id="@+id/Difficult"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:text="Difficult"
+                android:textColor="#000000"
+                android:textSize="20sp"
+                android:textStyle="italic" />
+        </RadioGroup>
+
+
+    </androidx.cardview.widget.CardView>
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView2"
+        android:layout_width="384dp"
+        android:layout_height="122dp"
+        android:layout_marginTop="16dp"
+        app:cardCornerRadius="8dp"
+        android:backgroundTint="#4BFFFFFF"
+        app:layout_constraintBottom_toTopOf="@+id/next"
+        app:layout_constraintEnd_toEndOf="@+id/cardView"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/cardView"
+        app:layout_constraintTop_toBottomOf="@id/cardView"
+        app:layout_constraintVertical_bias="0.352">
+
+        <TextView
+            android:id="@+id/text_type"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="8dp"
-            android:text="Difficult"
-            android:textColor="#B066107E"
-            android:textSize="20sp"
-            android:textStyle="italic" />
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="10dp"
+            android:text=" type of game "
+            android:textColor="#000000"
+            android:textSize="28sp"
+            android:textStyle="bold" />
 
-
-    </RadioGroup>
-
-    <TextView
-        android:id="@+id/text_type"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="28dp"
-        android:gravity="center"
-        android:text=" type of game "
-        android:textColor="#B066107E"
-        android:textSize="28sp"
-        android:textStyle="bold|italic"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/game_level" />
-
-    <RadioGroup
-        android:id="@+id/game_type"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:orientation="horizontal"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/text_type"
-        app:layout_constraintVertical_bias="0.0">
-
-        <com.google.android.material.radiobutton.MaterialRadioButton
-            android:id="@+id/Multiple_answers"
+        <RadioGroup
+            android:id="@+id/game_type"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="8dp"
-            android:text="Multiple answers"
-            android:textColor="#B066107E"
-            android:textSize="18sp"
-            android:textStyle="italic" />
+            android:layout_gravity="center"
+            android:layout_marginTop="16dp"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/text_type"
+            app:layout_constraintVertical_bias="0.0">
 
-        <com.google.android.material.radiobutton.MaterialRadioButton
-            android:id="@+id/True_or_false"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="8dp"
-            android:text="True or false"
-            android:textColor="#B066107E"
-            android:textSize="18sp"
-            android:textStyle="italic" />
+            <com.google.android.material.radiobutton.MaterialRadioButton
+                android:id="@+id/Multiple_answers"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:text="Multiple answers"
+                android:textColor="#000000"
+                android:textSize="18sp"
+                android:textStyle="italic" />
 
-    </RadioGroup>
+            <com.google.android.material.radiobutton.MaterialRadioButton
+                android:id="@+id/True_or_false"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:text="True or false"
+                android:textColor="#000000"
+                android:textSize="18sp"
+                android:textStyle="italic" />
 
+
+        </RadioGroup>
+
+    </androidx.cardview.widget.CardView>
     <com.airbnb.lottie.LottieAnimationView
         android:id="@+id/next"
-        android:layout_width="146dp"
-        android:layout_height="89dp"
-        android:layout_marginStart="248dp"
+        android:layout_width="183dp"
+        android:layout_height="108dp"
         android:gravity="center"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.975"
         app:lottie_autoPlay="true"
-
         app:lottie_loop="true"
         app:lottie_rawRes="@raw/next" />
-
 </androidx.constraintlayout.widget.ConstraintLayout>
