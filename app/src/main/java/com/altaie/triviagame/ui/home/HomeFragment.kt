@@ -62,6 +62,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
         activity?.let {
             it.supportFragmentManager.beginTransaction().apply {
                 replace(R.id.fragment_container, fragment)
+                addToBackStack(null)
             }.commit()
         }
     }
