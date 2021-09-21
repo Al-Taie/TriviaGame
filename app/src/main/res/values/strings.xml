@@ -1,10 +1,41 @@
 <resources>
     <string name="app_name">Trivia Game</string>
 
+    <string-array name="categories">
+        <item>27:Animals</item>
+        <item>9:General Knowledge</item>
+        <item>10:Books</item>
+        <item>11:Film</item>
+        <item>12:Music</item>
+        <item>13:Musicals &amp; Theatres</item>
+        <item>14:Television</item>
+        <item>15:Video Games</item>
+        <item>16:Board Games</item>
+        <item>17:Science &amp; Nature</item>
+        <item>18:Science: Computers</item>
+        <item>19:Science: Mathematics</item>
+        <item>20:Mythology</item>
+        <item>21:Sports</item>
+        <item>22:Geography</item>
+        <item>23:History</item>
+        <item>24:Politics</item>
+        <item>25:Art</item>
+        <item>26:Celebrities</item>
+        <item>27:Animals</item>
+        <item>28:Vehicles</item>
+        <item>29:Comics</item>
+        <item>30:Science: Gadgets</item>
+        <item>31:Japanese Anime &amp; Manga</item>
+        <item>32:Cartoon &amp; Animations</item>
+
+    </string-array>
+
     <integer-array name="categories_images">
         <item>@drawable/ic_sports</item>
     </integer-array>
 
+    <string name="play_again">Play Again</string>
+    <string name="results">Results</string>
     <string name="next">Next</string>
     <string name="trivia_game">Trivia Game</string>
     <string name="levels_of_game">Levels of game</string>
