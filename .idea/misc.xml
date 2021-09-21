@@ -3,6 +3,7 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/User/TriviaGame/app/src/main/res/drawable/splash_image.xml" value="0.109375" />
         <entry key="..\:/WorkSpace/Kotlin/Tasks/TriviaGame/app/src/main/res/drawable/ic_home.xml" value="0.26614583333333336" />
         <entry key="..\:/WorkSpace/Kotlin/Tasks/TriviaGame/app/src/main/res/layout/activity_main.xml" value="0.2359375" />
         <entry key="..\:/WorkSpace/Kotlin/Tasks/TriviaGame/app/src/main/res/layout/category_card_item.xml" value="0.23052536231884058" />
