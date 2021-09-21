@@ -35,7 +35,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginBottom="4dp"
-            android:text="@string/rivia_game"
+            android:text="@string/trivia_game"
             android:textColor="#B066107E"
             android:textSize="35sp"
             android:textStyle="italic"
@@ -47,7 +47,7 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recycler_category"
+        android:id="@+id/category_recycler"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="16dp"
@@ -74,7 +74,7 @@
         android:textStyle="bold|italic"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/recycler_category" />
+        app:layout_constraintTop_toBottomOf="@+id/category_recycler" />
 
     <RadioGroup
         android:id="@+id/game_level"

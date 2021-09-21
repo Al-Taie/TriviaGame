@@ -6,4 +6,6 @@
     </integer-array>
 
     <string name="next">Next</string>
+    <string name="trivia_game">Trivia Game</string>
+    <string name="levels_of_game">Levels of game</string>
 </resources>
