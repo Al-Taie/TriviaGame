@@ -3,10 +3,13 @@ package com.altaie.triviagame.ui.challenge
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
+import com.altaie.triviagame.R
 import com.altaie.triviagame.data.DataManager
 import com.altaie.triviagame.databinding.FragmentChallengeBinding
 import com.altaie.triviagame.ui.base.BaseFragment
 import com.altaie.triviagame.ui.interfaces.UpdateAdapter
+import com.altaie.triviagame.ui.result.ResultFragment
 import com.altaie.triviagame.util.Constant
 import com.altaie.triviagame.util.Params
 import com.altaie.triviagame.util.Parser
@@ -20,9 +23,10 @@ class ChallengeFragment : BaseFragment<FragmentChallengeBinding>(), UpdateAdapte
     }
 
     override fun callBack() {
-//        binding.startButton.setOnClickListener {
-//            initRequest()
-//        }
+        binding.optionFour.setOnClickListener {
+            val fragment = ResultFragment()
+            replaceFragment(fragment = fragment)
+        }
     }
 
     override val inflate: (LayoutInflater, ViewGroup?, attachToRoot: Boolean) -> FragmentChallengeBinding
@@ -59,5 +63,14 @@ class ChallengeFragment : BaseFragment<FragmentChallengeBinding>(), UpdateAdapte
     }
 
     override fun update() {
+    }
+
+    private fun replaceFragment(fragment: Fragment) {
+        activity?.let {
+            it.supportFragmentManager.beginTransaction().apply {
+                replace(R.id.fragment_container, fragment)
+                addToBackStack(null)
+            }.commit()
+        }
     }
 }
