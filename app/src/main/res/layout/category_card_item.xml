@@ -9,6 +9,7 @@
     android:layout_margin="8dp"
     android:minWidth="80dp"
     android:minHeight="80dp"
+    android:backgroundTint="#663359"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content">
 
@@ -30,7 +31,7 @@
             android:id="@+id/category_name"
             android:layout_marginTop="4dp"
             android:gravity="center"
-            android:textColor="#663359"
+            android:textColor="#FFFFFF"
             android:layout_gravity="center"
             android:textStyle="bold"
             android:textSize="20sp"
