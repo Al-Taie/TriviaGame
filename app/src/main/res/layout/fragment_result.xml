@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="16dp"
     android:background="@color/purple"
     tools:context=".ui.result.ResultFragment">
 
@@ -12,8 +11,9 @@
         android:id="@+id/result_background"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="60dp"
+        android:layout_marginTop="40dp"
         android:layout_marginBottom="100dp"
+        android:layout_marginHorizontal="@dimen/margin3x"
         android:background="@drawable/results_background"
         android:scaleType="centerCrop"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -25,10 +25,10 @@
         android:id="@+id/result_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="130dp"
+        android:layout_marginTop="80dp"
         android:text="@string/results"
-        android:textColor="@color/black"
-        android:textSize="26sp"
+        android:textColor="@color/purple"
+        android:textSize="28sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -41,7 +41,6 @@
         android:layout_marginTop="16dp"
         android:gravity="center"
         android:textSize="24sp"
-        android:textColor="@color/red"
         app:layout_constraintEnd_toEndOf="@+id/result_text"
         app:layout_constraintStart_toStartOf="@+id/result_text"
         app:layout_constraintTop_toBottomOf="@id/result_text"
@@ -57,15 +56,16 @@
         app:layout_constraintEnd_toEndOf="@+id/result_text"
         app:layout_constraintStart_toStartOf="@+id/result_text"
         app:layout_constraintTop_toBottomOf="@+id/result"
-        tools:text="Congratulations, You Won!" />
+        tools:text="Excellent Work!" />
 
-    <ImageView
-        android:id="@+id/result_status_image"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
-        tools:src="@drawable/ic_like"
-        android:layout_marginVertical="30dp"
-        app:layout_constraintBottom_toTopOf="@+id/play_again_btn"
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/result_status_animation"
+        android:layout_width="170dp"
+        android:layout_height="170dp"
+        tools:lottie_rawRes="@raw/thumps_up"
+        app:lottie_autoPlay="true"
+        app:lottie_loop="true"
+        android:layout_marginTop="@dimen/margin2x"
         app:layout_constraintEnd_toEndOf="@+id/result_background"
         app:layout_constraintStart_toStartOf="@+id/result_background"
         app:layout_constraintTop_toBottomOf="@+id/result_status" />
@@ -73,7 +73,8 @@
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/play_again_btn"
         android:layout_width="200dp"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
+        android:layout_marginBottom="@dimen/margin3x"
         android:background="@drawable/play_again_background"
         android:elevation="4dp"
         android:text="@string/play_again"
@@ -83,5 +84,5 @@
         app:layout_constraintBottom_toBottomOf="@+id/result_background"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/result_status_image" />
+        app:layout_constraintTop_toBottomOf="@+id/result_status_animation" />
 </androidx.constraintlayout.widget.ConstraintLayout>
