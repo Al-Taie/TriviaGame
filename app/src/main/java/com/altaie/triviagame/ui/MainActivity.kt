@@ -23,7 +23,6 @@ class MainActivity : BaseActivity<ActivityMainBinding>(), ItemListener {
     private fun initViewPager() {
         val fragmentsList = listOf(HomeFragment(this), ChallengeFragment(), ResultFragment())
         binding.viewPager.adapter = ViewPagerAdapter(this, fragmentsList = fragmentsList)
-        initTabLayout()
     }
 
     override fun callBack() {
@@ -32,19 +31,6 @@ class MainActivity : BaseActivity<ActivityMainBinding>(), ItemListener {
 
     override val inflate: (LayoutInflater) -> ActivityMainBinding
         get() = ActivityMainBinding::inflate
-
-    private fun initTabLayout() {
-        val tabIcons = listOf(
-            R.drawable.ic_home,
-            R.drawable.ic_sports,
-            R.drawable.ic_baseline_bar_chart_24,
-        ).map(this::getDrawable)
-        binding.apply {
-            TabLayoutMediator(tabLayout, viewPager) { tab, position ->
-                tab.icon = tabIcons[position]
-            }.attach()
-        }
-    }
 
     override fun onClickItem(name: String) {
         DataManager.category = name
