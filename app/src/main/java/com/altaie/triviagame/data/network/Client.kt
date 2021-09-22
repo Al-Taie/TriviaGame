@@ -2,11 +2,11 @@ package com.altaie.triviagame.data.network
 
 import android.util.Log
 import com.altaie.triviagame.data.Status
+import com.altaie.triviagame.data.repository.TrivialRepository
 import com.altaie.triviagame.data.response.category.NationalCategoryResponse
 import com.altaie.triviagame.data.response.quiz.NationalQuizResponse
 import com.altaie.triviagame.util.Constant
 import com.altaie.triviagame.util.Params
-import com.altaie.triviagame.util.Parser
 import com.google.gson.Gson
 import okhttp3.*
 import java.io.IOException
@@ -35,15 +35,15 @@ object Client {
     }
 
 
-    private fun initRequest(category: String, difficulty: String, type: String) : Status<NationalQuizResponse> {
+    fun initRequest() : Status<NationalQuizResponse> {
         val url = HttpUrl.Builder()
             .scheme(Constant.SCHEMA)
             .host(Constant.HOST)
             .addPathSegment(Constant.PATH)
             .addQueryParameter(Params.AMOUNT, Constant.AMOUNT)
-            .addQueryParameter(Params.CATEGORY, category)
-            .addQueryParameter(Params.DIFFICULTY, difficulty)
-            .addQueryParameter(Params.TYPE, type)
+            .addQueryParameter(Params.CATEGORY, TrivialRepository.Settings.category)
+            .addQueryParameter(Params.DIFFICULTY, TrivialRepository.Settings.difficulty)
+            .addQueryParameter(Params.TYPE, TrivialRepository.Settings.type)
             .build()
 
         val request = Request.Builder().url(url = url).build()
@@ -52,9 +52,9 @@ object Client {
 
     private fun getQuestion(request: Request) : Status<NationalQuizResponse>{
         val response = okHttpClient.newCall(request = request).execute()
-        val nationalResponse = Gson().fromJson(response.body.toString(), NationalQuizResponse::class.java)
 
         return if (response.isSuccessful) {
+            val nationalResponse = Gson().fromJson(response.body?.string(), NationalQuizResponse::class.java)
            Status.Success(nationalResponse)
         } else {
             Status.Fail(response.message)

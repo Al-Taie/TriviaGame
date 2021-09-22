@@ -16,3 +16,8 @@ object Params {
     const val EASY = "easy"
     const val TYPE = "type"
 }
+
+object Types {
+    const val MULTIPLE = "multiple"
+    const val BOOLEAN = "boolean"
+}
