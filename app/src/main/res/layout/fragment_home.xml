@@ -9,126 +9,165 @@
     tools:context=".ui.home.HomeFragment">
 
 
-    <ImageView
-        android:id="@+id/title"
-        android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:layout_marginTop="40dp"
-        android:scaleType="fitCenter"
-        android:src="@drawable/logo"
+    <View
+        android:id="@+id/view"
+        android:layout_width="412dp"
+        android:layout_height="78dp"
+        android:background="#6D60AA"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.698"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/category_recycler"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="24dp"
-        android:layout_marginTop="24dp"
-        android:background="@color/white"
-        android:orientation="horizontal"
-        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        app:layout_constraintBottom_toTopOf="@id/cardView"
+    <View
+        android:id="@+id/view2"
+        android:layout_width="370dp"
+        android:layout_height="455dp"
+        android:layout_marginTop="36dp"
+        android:background="@drawable/top_shape"
+        app:layout_constraintEnd_toEndOf="@+id/view"
+        app:layout_constraintHorizontal_bias="0.595"
+        app:layout_constraintStart_toStartOf="@+id/view"
+        app:layout_constraintTop_toTopOf="@+id/view" />
+
+    <ImageView
+        android:id="@+id/title"
+        android:layout_width="291dp"
+        android:layout_height="105dp"
+        android:layout_marginTop="40dp"
+        android:src="@drawable/logo"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintHorizontal_bias="0.612"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/title"
-        app:layout_goneMarginLeft="16dp"
-        tools:listitem="@layout/category_card_item" />
+        app:layout_constraintTop_toTopOf="@+id/view2" />
+
+
+    <TextView
+        android:id="@+id/categores"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="36dp"
+        android:layout_marginTop="20dp"
+        android:text="Choose a category"
+        android:textColor="#A4000000"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/cardView2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/title" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="55dp"
+        android:foregroundGravity="center"
+        android:backgroundTint="#7C6D60AA"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/title">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/category_recycler"
+            android:layout_width="350dp"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/title"
+            tools:listitem="@layout/category_card_item" />
+    </androidx.cardview.widget.CardView>
+
+    <TextView
+        android:id="@+id/level"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="28dp"
+        android:text="@string/Levels_of_game"
+        android:textColor="#A4000000"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@+id/categores"
+        app:layout_constraintTop_toBottomOf="@+id/cardView2" />
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView"
-        android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:layout_margin="24dp"
+        android:layout_width="350dp"
+        android:layout_height="122dp"
+       android:layout_marginTop="4dp"
+        android:layout_marginHorizontal="@dimen/margin3x"
+        android:backgroundTint="#7C6D60AA"
         android:elevation="4dp"
         android:padding="@dimen/padding2x"
-        android:backgroundTint="#E8E0F7"
-        android:layout_marginHorizontal="@dimen/margin3x"
         app:cardCornerRadius="@dimen/padding1x"
-        app:layout_constraintBottom_toTopOf="@+id/next"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/category_recycler" />
-    <RadioGroup
-        android:id="@+id/game_level"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:elevation="8dp"
+        app:layout_constraintEnd_toEndOf="@+id/cardView2"
+        app:layout_constraintStart_toStartOf="@+id/cardView2"
+        app:layout_constraintTop_toBottomOf="@+id/level">
 
-        android:orientation="horizontal"
-        app:layout_constraintBottom_toBottomOf="@+id/cardView"
-        app:layout_constraintEnd_toEndOf="@+id/cardView"
-        app:layout_constraintStart_toStartOf="@+id/cardView"
-        app:layout_constraintTop_toBottomOf="@id/text_level">
-
-        <com.google.android.material.radiobutton.MaterialRadioButton
-            android:id="@+id/Easy"
+        <RadioGroup
+            android:id="@+id/game_level"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="8dp"
-            android:text="Easy"
-            android:buttonTint="@color/purple"
+            android:layout_gravity="center"
+            android:elevation="8dp"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toBottomOf="@+id/cardView"
+            app:layout_constraintEnd_toEndOf="@+id/cardView"
+            app:layout_constraintStart_toStartOf="@+id/cardView"
+            app:layout_constraintTop_toTopOf="@+id/cardView">
 
-            android:textColor="#000000"
-            android:textSize="13sp" />
+            <com.google.android.material.radiobutton.MaterialRadioButton
+                android:id="@+id/Easy"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:buttonTint="@color/purple"
+                android:fontFamily="@font/amita"
+                android:text="Easy"
+                android:textColor="#000000"
+                android:textSize="15sp"
+                android:textStyle="bold" />
 
-        <com.google.android.material.radiobutton.MaterialRadioButton
-            android:id="@+id/middle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="8dp"
-            android:text="middle"
-            android:buttonTint="@color/purple"
+            <com.google.android.material.radiobutton.MaterialRadioButton
+                android:id="@+id/middle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:buttonTint="@color/purple"
+                android:fontFamily="@font/amita"
+                android:text="middle"
+                android:textColor="#000000"
+                android:textSize="15sp"
+                android:textStyle="bold" />
 
-            android:textColor="#000000"
-            android:textSize="13sp" />
-
-        <com.google.android.material.radiobutton.MaterialRadioButton
-            android:id="@+id/Difficult"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="8dp"
-            android:text="Difficult"
-            android:buttonTint="@color/purple"
-            android:textColor="#000000"
-            android:textSize="13sp" />
-    </RadioGroup>
-    <TextView
-        android:id="@+id/text_level"
-        android:text="@string/Levels_of_game"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:elevation="8dp"
-
-        android:layout_marginTop="8dp"
-        android:textColor="#6D60AA"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="@+id/cardView"
-        app:layout_constraintStart_toStartOf="@+id/cardView"
-        app:layout_constraintTop_toTopOf="@+id/cardView" />
-
+            <com.google.android.material.radiobutton.MaterialRadioButton
+                android:id="@+id/Difficult"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:buttonTint="@color/purple"
+                android:fontFamily="@font/amita"
+                android:text="Difficult"
+                android:textColor="#000000"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+        </RadioGroup>
+    </androidx.cardview.widget.CardView>
 
     <com.airbnb.lottie.LottieAnimationView
         android:id="@+id/next"
-        android:layout_width="319dp"
-        android:layout_height="170dp"
+        android:layout_width="212dp"
+        android:layout_height="79dp"
+        android:layout_marginBottom="16dp"
+
+
         app:layout_constraintBottom_toBottomOf="parent"
-
-
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.849"
         app:layout_constraintStart_toStartOf="parent"
         app:lottie_autoPlay="true"
         app:lottie_loop="false"
         app:lottie_rawRes="@raw/next" />
-
-
-
-
-
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
