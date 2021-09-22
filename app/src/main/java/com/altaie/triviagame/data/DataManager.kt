@@ -1,6 +1,7 @@
 package com.altaie.triviagame.data
 
-import com.altaie.triviagame.data.category.Category
+import com.altaie.triviagame.data.response.category.Category
+import com.altaie.triviagame.data.response.quiz.Quiz
 
 object DataManager {
     private val categoriesList = mutableListOf<Category>()

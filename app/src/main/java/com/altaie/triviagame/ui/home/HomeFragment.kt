@@ -7,7 +7,7 @@ import androidx.fragment.app.Fragment
 import com.altaie.triviagame.R
 import com.altaie.triviagame.data.DataManager
 import com.altaie.triviagame.data.DataManager.categories
-import com.altaie.triviagame.data.category.NationalCategoryResponse
+import com.altaie.triviagame.data.response.category.NationalCategoryResponse
 import com.altaie.triviagame.databinding.FragmentHomeBinding
 import com.altaie.triviagame.ui.base.BaseFragment
 import com.altaie.triviagame.ui.challenge.ChallengeFragment

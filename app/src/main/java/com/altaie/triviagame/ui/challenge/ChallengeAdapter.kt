@@ -8,7 +8,7 @@ import androidx.core.view.children
 import androidx.recyclerview.widget.RecyclerView
 import com.altaie.triviagame.R
 import com.altaie.triviagame.data.DataManager
-import com.altaie.triviagame.data.Quiz
+import com.altaie.triviagame.data.response.quiz.Quiz
 import com.altaie.triviagame.databinding.ChallengeCardItemBinding
 
 class ChallengeAdapter(private val list: List<Quiz>) :

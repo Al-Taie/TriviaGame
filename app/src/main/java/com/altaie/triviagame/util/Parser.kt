@@ -1,7 +1,7 @@
 package com.altaie.triviagame.util
 
 import com.altaie.triviagame.data.DataManager
-import com.altaie.triviagame.data.NationalResponse
+import com.altaie.triviagame.data.response.quiz.NationalResponse
 
 import com.google.gson.Gson
 

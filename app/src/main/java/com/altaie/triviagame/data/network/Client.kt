@@ -1,7 +1,7 @@
-package com.altaie.triviagame.network
+package com.altaie.triviagame.data.network
 
 import android.util.Log
-import com.altaie.triviagame.data.category.NationalCategoryResponse
+import com.altaie.triviagame.data.response.category.NationalCategoryResponse
 import com.altaie.triviagame.util.Parser
 import com.google.gson.Gson
 import okhttp3.*

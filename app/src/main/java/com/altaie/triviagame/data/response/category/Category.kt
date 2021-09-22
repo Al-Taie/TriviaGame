@@ -1,4 +1,4 @@
-package com.altaie.triviagame.data.category
+package com.altaie.triviagame.data.response.category
 
 data class Category(
         val id: Int,

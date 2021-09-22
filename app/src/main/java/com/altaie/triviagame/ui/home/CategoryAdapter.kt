@@ -5,8 +5,8 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.altaie.triviagame.R
-import com.altaie.triviagame.data.category.Category
-import com.altaie.triviagame.data.Quiz
+import com.altaie.triviagame.data.response.category.Category
+import com.altaie.triviagame.data.response.quiz.Quiz
 import com.altaie.triviagame.databinding.CategoryCardItemBinding
 import com.altaie.triviagame.ui.interfaces.ItemListener
 

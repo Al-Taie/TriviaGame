@@ -1,4 +1,4 @@
-package com.altaie.triviagame.data.category
+package com.altaie.triviagame.data.response.category
 
 import com.google.gson.annotations.SerializedName
 
