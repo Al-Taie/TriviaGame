@@ -1,6 +1,7 @@
 package com.altaie.triviagame.util
 
 object Constant {
+    const val RESULT_KEY = "RESULT"
     const val AMOUNT = "10"
     const val HOST = "opentdb.com"
     const val PATH = "api.php"

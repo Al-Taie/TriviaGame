@@ -1,8 +1,9 @@
 package com.altaie.triviagame.ui.challenge
 
+import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import android.widget.RadioButton
+import androidx.appcompat.widget.AppCompatButton
 import androidx.core.view.children
 import androidx.fragment.app.Fragment
 import com.altaie.triviagame.R
@@ -11,32 +12,26 @@ import com.altaie.triviagame.databinding.FragmentChallengeBinding
 import com.altaie.triviagame.ui.base.BaseFragment
 import com.altaie.triviagame.ui.interfaces.UpdateAdapter
 import com.altaie.triviagame.ui.result.ResultFragment
+import com.altaie.triviagame.util.Constant
 
 
 class ChallengeFragment : BaseFragment<FragmentChallengeBinding>(), UpdateAdapter {
     override fun setup() {}
 
     override fun callBack() {
-        binding.optionFour.setOnClickListener {
-            val fragment = ResultFragment()
-            replaceFragment(fragment = fragment)
-        }
-
         bindData()
-//        setOptions()
-
+        setOptions()
     }
 
     private fun setOptions() {
         binding.optionsGroup.children.forEach { button ->
             button.setOnClickListener {
                 val correctAnswer = TrivialRepository.currentQuestion.correctAnswer
-                val currentAnswer = (button as RadioButton).text
-                if (correctAnswer == currentAnswer){
+                val currentAnswer = (button as AppCompatButton).text
+                if (correctAnswer == currentAnswer) {
                     TrivialRepository.score += 10
                 }
-                TrivialRepository.position++
-                bindData()
+                checkEnd()
             }
         }
     }
@@ -46,6 +41,25 @@ class ChallengeFragment : BaseFragment<FragmentChallengeBinding>(), UpdateAdapte
 
     override fun update() {}
 
+    private fun checkEnd() {
+        val result = TrivialRepository.score.toString()
+        val position = TrivialRepository.position
+        val fragment = ResultFragment()
+        val bundle = Bundle()
+
+        bundle.putString(Constant.RESULT_KEY, result)
+        fragment.arguments = bundle
+
+        if (position < TrivialRepository.quizzes.lastIndex) {
+            TrivialRepository.position++
+            bindData()
+        } else {
+            TrivialRepository.position = 0
+            TrivialRepository.score = 0
+            replaceFragment(fragment = fragment)
+        }
+    }
+
     private fun replaceFragment(fragment: Fragment) {
         activity?.let {
             it.supportFragmentManager.beginTransaction().apply {
@@ -54,6 +68,7 @@ class ChallengeFragment : BaseFragment<FragmentChallengeBinding>(), UpdateAdapte
             }.commit()
         }
     }
+
     private fun bindData() {
         TrivialRepository.quizzes[TrivialRepository.position].apply {
             val list = mutableListOf<String>()
@@ -61,12 +76,13 @@ class ChallengeFragment : BaseFragment<FragmentChallengeBinding>(), UpdateAdapte
             list.add(correctAnswer)
             list.shuffle()
             binding.question.text = question
-           binding.apply {
-               optionOne.text = list[0]
-               optionTwo.text = list[1]
-               optionThree.text = list[2]
-               optionFour.text = list[3]
-           }
+
+            binding.apply {
+                optionOne.text = list[0]
+                optionTwo.text = list[1]
+                optionThree.text = list[2]
+                optionFour.text = list[3]
+            }
         }
     }
 }
