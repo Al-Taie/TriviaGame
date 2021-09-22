@@ -13,6 +13,7 @@ import com.altaie.triviagame.ui.base.BaseFragment
 import com.altaie.triviagame.ui.interfaces.UpdateAdapter
 import com.altaie.triviagame.ui.result.ResultFragment
 import com.altaie.triviagame.util.Constant
+import com.kofigyan.stateprogressbar.StateProgressBar
 
 
 class ChallengeFragment : BaseFragment<FragmentChallengeBinding>(), UpdateAdapter {
@@ -21,6 +22,10 @@ class ChallengeFragment : BaseFragment<FragmentChallengeBinding>(), UpdateAdapte
     override fun callBack() {
         bindData()
         setOptions()
+        binding.progress.apply {
+            checkStateCompleted(true)
+            setCurrentStateNumber(StateProgressBar.StateNumber.ONE)
+        }
     }
 
     private fun setOptions() {
@@ -50,13 +55,38 @@ class ChallengeFragment : BaseFragment<FragmentChallengeBinding>(), UpdateAdapte
         bundle.putString(Constant.RESULT_KEY, result)
         fragment.arguments = bundle
 
-        if (position < TrivialRepository.quizzes.lastIndex) {
+        if (position < TrivialRepository.lastPosition) {
             TrivialRepository.position++
             bindData()
         } else {
             TrivialRepository.position = 0
             TrivialRepository.score = 0
             replaceFragment(fragment = fragment)
+            TrivialRepository.progressState = 1
+            binding.progress.setCurrentStateNumber(StateProgressBar.StateNumber.ONE)
+        }
+
+        updateProgressBar()
+
+    }
+
+    private fun updateProgressBar() {
+        val position = TrivialRepository.position
+        if (position % 3 == 0) {
+            TrivialRepository.progressState++
+            val progressState = when (TrivialRepository.progressState) {
+                1 -> StateProgressBar.StateNumber.ONE
+                2 -> StateProgressBar.StateNumber.TWO
+                3 -> StateProgressBar.StateNumber.THREE
+                else -> StateProgressBar.StateNumber.FOUR
+            }
+            binding.progress.setCurrentStateNumber(progressState)
+        }
+
+        binding.progress.apply {
+            if (position == TrivialRepository.lastPosition) {
+                setAllStatesCompleted(true)
+            }
         }
     }
 

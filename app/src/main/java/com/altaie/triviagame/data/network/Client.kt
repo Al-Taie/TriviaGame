@@ -54,8 +54,9 @@ object Client {
         val response = okHttpClient.newCall(request = request).execute()
 
         return if (response.isSuccessful) {
-            val nationalResponse = Gson().fromJson(response.body?.string(), NationalQuizResponse::class.java)
-           Status.Success(nationalResponse)
+            Gson().fromJson(response.body?.string(), NationalQuizResponse::class.java).run {
+                Status.Success(this)
+            }
         } else {
             Status.Fail(response.message)
         }
