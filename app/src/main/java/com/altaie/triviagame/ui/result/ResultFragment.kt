@@ -3,9 +3,11 @@ package com.altaie.triviagame.ui.result
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.core.content.ContextCompat.getColor
+import androidx.fragment.app.Fragment
 import com.altaie.triviagame.R
 import com.altaie.triviagame.databinding.FragmentResultBinding
 import com.altaie.triviagame.ui.base.BaseFragment
+import com.altaie.triviagame.ui.home.HomeFragment
 import com.altaie.triviagame.util.Constant
 
 
@@ -51,8 +53,22 @@ class ResultFragment : BaseFragment<FragmentResultBinding>() {
 
     override fun setup() {}
 
-    override fun callBack() {}
+    override fun callBack() {
+        binding.startNewGameButton.setOnClickListener {
+            replaceFragment(fragment = HomeFragment())
+        }
+    }
 
     override val inflate: (LayoutInflater, ViewGroup?, attachToRoot: Boolean) -> FragmentResultBinding
         get() = FragmentResultBinding::inflate
+
+
+    private fun replaceFragment(fragment: Fragment) {
+        activity?.let {
+            it.supportFragmentManager.beginTransaction().apply {
+                replace(R.id.fragment_container, fragment)
+                addToBackStack(null)
+            }.commit()
+        }
+    }
 }

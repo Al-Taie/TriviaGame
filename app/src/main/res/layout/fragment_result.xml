@@ -87,9 +87,9 @@
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/return_home_btn"/>
+        app:layout_constraintBottom_toTopOf="@id/start_new_game_button"/>
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/return_home_btn"
+        android:id="@+id/start_new_game_button"
         android:layout_width="200dp"
         android:layout_height="50dp"
         android:layout_marginBottom="@dimen/margin3x"
