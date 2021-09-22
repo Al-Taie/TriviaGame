@@ -13,6 +13,7 @@ import io.reactivex.rxjava3.core.Observable
 object TrivialRepository {
     private val categoriesList = mutableListOf<Category>()
     private val quizList = mutableListOf<Quiz>()
+    var progressState = 1
     var score = 0
 
     val currentQuestion get() = quizList[position]
@@ -46,4 +47,5 @@ object TrivialRepository {
     }
 
     var position = 0
+    val lastPosition get() = quizList.lastIndex
 }
