@@ -53,4 +53,10 @@ dependencies {
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'
 
     implementation 'com.airbnb.android:lottie:4.0.0'
+
+    // RXJava dependency
+    def rxjava_version = "3.1.1"
+    implementation "io.reactivex.rxjava3:rxjava:$rxjava_version"
+    def rxandroid_version = "3.0.0"
+    implementation "io.reactivex.rxjava3:rxandroid:$rxandroid_version"
 }

@@ -5,8 +5,8 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.altaie.triviagame.R
-import com.altaie.triviagame.data.DataManager
-import com.altaie.triviagame.data.DataManager.categories
+import com.altaie.triviagame.data.repository.TrivialRepository
+import com.altaie.triviagame.data.repository.TrivialRepository.categories
 import com.altaie.triviagame.data.response.category.NationalCategoryResponse
 import com.altaie.triviagame.databinding.FragmentHomeBinding
 import com.altaie.triviagame.ui.base.BaseFragment
@@ -53,7 +53,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
                         }
 
                     }
-                    DataManager.initCategory(categories)
+                    TrivialRepository.initCategoriesList(categories)
 
 
                     activity?.runOnUiThread {

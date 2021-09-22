@@ -7,7 +7,7 @@ import android.widget.Toast
 import androidx.core.view.children
 import androidx.recyclerview.widget.RecyclerView
 import com.altaie.triviagame.R
-import com.altaie.triviagame.data.DataManager
+import com.altaie.triviagame.data.repository.TrivialRepository
 import com.altaie.triviagame.data.response.quiz.Quiz
 import com.altaie.triviagame.databinding.ChallengeCardItemBinding
 
@@ -27,7 +27,7 @@ class ChallengeAdapter(private val list: List<Quiz>) :
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.binding.apply {
 
-            DataManager.quizzes[position].apply {
+            TrivialRepository.quizzes[position].apply {
                 val list = mutableListOf<String>()
                 list.addAll(incorrectAnswers)
                 list.add(correctAnswer)
