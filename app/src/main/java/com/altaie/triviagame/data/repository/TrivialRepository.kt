@@ -13,6 +13,9 @@ import io.reactivex.rxjava3.core.Observable
 object TrivialRepository {
     private val categoriesList = mutableListOf<Category>()
     private val quizList = mutableListOf<Quiz>()
+    var score = 0
+
+    val currentQuestion get() = quizList[position]
 
     fun initQuizList(quizList: List<Quiz>?) {
         TrivialRepository.quizList.clear()

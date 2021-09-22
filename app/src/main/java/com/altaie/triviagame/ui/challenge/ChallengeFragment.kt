@@ -2,18 +2,15 @@ package com.altaie.triviagame.ui.challenge
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import android.widget.RadioButton
 import androidx.core.view.children
 import androidx.fragment.app.Fragment
 import com.altaie.triviagame.R
 import com.altaie.triviagame.data.repository.TrivialRepository
-import com.altaie.triviagame.data.response.quiz.Quiz
-
 import com.altaie.triviagame.databinding.FragmentChallengeBinding
 import com.altaie.triviagame.ui.base.BaseFragment
 import com.altaie.triviagame.ui.interfaces.UpdateAdapter
 import com.altaie.triviagame.ui.result.ResultFragment
-import io.reactivex.rxjava3.disposables.CompositeDisposable
-import io.reactivex.rxjava3.disposables.Disposable
 
 
 class ChallengeFragment : BaseFragment<FragmentChallengeBinding>(), UpdateAdapter {
@@ -26,14 +23,20 @@ class ChallengeFragment : BaseFragment<FragmentChallengeBinding>(), UpdateAdapte
         }
 
         bindData()
-        setOptions()
+//        setOptions()
 
     }
 
     private fun setOptions() {
         binding.optionsGroup.children.forEach { button ->
             button.setOnClickListener {
-
+                val correctAnswer = TrivialRepository.currentQuestion.correctAnswer
+                val currentAnswer = (button as RadioButton).text
+                if (correctAnswer == currentAnswer){
+                    TrivialRepository.score += 10
+                }
+                TrivialRepository.position++
+                bindData()
             }
         }
     }
@@ -51,15 +54,13 @@ class ChallengeFragment : BaseFragment<FragmentChallengeBinding>(), UpdateAdapte
             }.commit()
         }
     }
-
     private fun bindData() {
         TrivialRepository.quizzes[TrivialRepository.position].apply {
             val list = mutableListOf<String>()
             list.addAll(incorrectAnswers)
             list.add(correctAnswer)
             list.shuffle()
-
-        binding.question.text = question
+            binding.question.text = question
            binding.apply {
                optionOne.text = list[0]
                optionTwo.text = list[1]
