@@ -38,5 +38,6 @@
     <string name="results">Results</string>
     <string name="next">Next</string>
     <string name="trivia_game">Trivia Game</string>
-    <string name="levels_of_game">Levels of game</string>
+    <string name="Levels_of_game">Levels of game</string>
+    <string name="Type_of_game">Type of game</string>
 </resources>
