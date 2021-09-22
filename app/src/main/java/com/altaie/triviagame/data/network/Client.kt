@@ -1,7 +1,11 @@
 package com.altaie.triviagame.data.network
 
 import android.util.Log
+import com.altaie.triviagame.data.Status
 import com.altaie.triviagame.data.response.category.NationalCategoryResponse
+import com.altaie.triviagame.data.response.quiz.NationalQuizResponse
+import com.altaie.triviagame.util.Constant
+import com.altaie.triviagame.util.Params
 import com.altaie.triviagame.util.Parser
 import com.google.gson.Gson
 import okhttp3.*
@@ -30,17 +34,31 @@ object Client {
         })
     }
 
-    fun getQuestion(request: Request) {
-        okHttpClient.newCall(request = request).enqueue(object : Callback {
-            override fun onFailure(call: Call, e: IOException) {
-                Log.v("FAILURE_REQUEST", e.message.toString())
-            }
 
-            override fun onResponse(call: Call, response: Response) {
-                response.body?.let { Parser.parse(it.string()) }
+    private fun initRequest(category: String, difficulty: String, type: String) : Status<NationalQuizResponse> {
+        val url = HttpUrl.Builder()
+            .scheme(Constant.SCHEMA)
+            .host(Constant.HOST)
+            .addPathSegment(Constant.PATH)
+            .addQueryParameter(Params.AMOUNT, Constant.AMOUNT)
+            .addQueryParameter(Params.CATEGORY, category)
+            .addQueryParameter(Params.DIFFICULTY, difficulty)
+            .addQueryParameter(Params.TYPE, type)
+            .build()
 
-            }
-        })
+        val request = Request.Builder().url(url = url).build()
+        return getQuestion(request = request)
+    }
+
+    private fun getQuestion(request: Request) : Status<NationalQuizResponse>{
+        val response = okHttpClient.newCall(request = request).execute()
+        val nationalResponse = Gson().fromJson(response.body.toString(), NationalQuizResponse::class.java)
+
+        return if (response.isSuccessful) {
+           Status.Success(nationalResponse)
+        } else {
+            Status.Fail(response.message)
+        }
     }
 
 }

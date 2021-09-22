@@ -2,7 +2,7 @@ package com.altaie.triviagame.data.response.quiz
 
 import com.google.gson.annotations.SerializedName
 
-data class NationalResponse(
+data class NationalQuizResponse(
     @SerializedName("response_code")
     val responseCode: Int,
 
