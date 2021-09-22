@@ -4,17 +4,18 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#C9FFFFFF"
+    android:background="@color/white"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".ui.home.HomeFragment">
 
 
     <ImageView
         android:id="@+id/title"
-        android:layout_width="358dp"
-        android:layout_height="171dp"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
         android:layout_marginTop="40dp"
-        android:src="@drawable/splash_image"
+        android:scaleType="fitCenter"
+        android:src="@drawable/logo"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.698"
         app:layout_constraintStart_toStartOf="parent"
@@ -26,8 +27,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="24dp"
         android:layout_marginTop="24dp"
-        android:layout_marginLeft="73dp"
-        android:layout_marginRight="73dp"
+        android:background="@color/white"
         android:orientation="horizontal"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_constraintBottom_toTopOf="@id/cardView"
@@ -36,15 +36,19 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/title"
         app:layout_goneMarginLeft="16dp"
-        tools:itemCount="3"
         tools:listitem="@layout/category_card_item" />
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView"
-        android:layout_width="320dp"
-        android:layout_height="95dp"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
         android:layout_margin="24dp"
+        android:elevation="4dp"
+        android:padding="@dimen/padding2x"
+        android:backgroundTint="#E8E0F7"
+        android:layout_marginHorizontal="@dimen/margin3x"
         app:cardCornerRadius="@dimen/padding1x"
+        app:layout_constraintBottom_toTopOf="@+id/next"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/category_recycler" />
@@ -53,6 +57,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:elevation="8dp"
+
         android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="@+id/cardView"
         app:layout_constraintEnd_toEndOf="@+id/cardView"
@@ -65,6 +70,8 @@
             android:layout_height="wrap_content"
             android:layout_margin="8dp"
             android:text="Easy"
+            android:buttonTint="@color/purple"
+
             android:textColor="#000000"
             android:textSize="13sp" />
 
@@ -74,6 +81,8 @@
             android:layout_height="wrap_content"
             android:layout_margin="8dp"
             android:text="middle"
+            android:buttonTint="@color/purple"
+
             android:textColor="#000000"
             android:textSize="13sp" />
 
@@ -83,6 +92,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="8dp"
             android:text="Difficult"
+            android:buttonTint="@color/purple"
             android:textColor="#000000"
             android:textSize="13sp" />
     </RadioGroup>
@@ -92,119 +102,33 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:elevation="8dp"
-        android:layout_marginTop="4dp"
-        android:textColor="#BC8027B2"
+
+        android:layout_marginTop="8dp"
+        android:textColor="#6D60AA"
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="@+id/cardView"
         app:layout_constraintStart_toStartOf="@+id/cardView"
         app:layout_constraintTop_toTopOf="@+id/cardView" />
 
-    <androidx.cardview.widget.CardView
-        android:id="@+id/cardView2"
-        android:layout_width="320dp"
-        android:layout_height="95dp"
-        android:layout_margin="24dp"
-        app:cardCornerRadius="8dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/cardView"/>
-    <TextView
-        android:id="@+id/text_type"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:elevation="8dp"
-        android:layout_marginTop="4dp"
-        android:text="@string/Type_of_game"
-        android:textColor="#BC8027B2"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="@+id/cardView2"
-        app:layout_constraintStart_toStartOf="@+id/cardView2"
-        app:layout_constraintTop_toTopOf="@+id/cardView2" />
-    <RadioGroup
-        android:id="@+id/game_type"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="4dp"
-        android:layout_marginEnd="4dp"
-        android:elevation="8dp"
-        android:orientation="horizontal"
-        app:layout_constraintBottom_toBottomOf="@+id/cardView2"
-        app:layout_constraintEnd_toEndOf="@+id/cardView2"
-        app:layout_constraintStart_toStartOf="@+id/cardView2"
-        app:layout_constraintTop_toBottomOf="@id/text_type">
-
-        <com.google.android.material.radiobutton.MaterialRadioButton
-            android:id="@+id/Multiple_answers"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="8dp"
-            android:text="Multiple answers"
-            android:textColor="#000000"
-            android:textSize="13sp" />
-
-        <com.google.android.material.radiobutton.MaterialRadioButton
-            android:id="@+id/True_or_false"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="8dp"
-            android:text="True or false"
-            android:textColor="#000000"
-            android:textSize="13sp" />
-    </RadioGroup>
 
     <com.airbnb.lottie.LottieAnimationView
         android:id="@+id/next"
         android:layout_width="319dp"
         android:layout_height="170dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/cardView2"
-        app:layout_constraintHorizontal_bias="0.51"
-        app:layout_constraintStart_toStartOf="@+id/cardView2"
-        app:layout_constraintTop_toBottomOf="@+id/cardView2"
-        app:layout_constraintVertical_bias="0.333"
+
+
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:lottie_autoPlay="true"
-        app:lottie_loop="true"
+        app:lottie_loop="false"
         app:lottie_rawRes="@raw/next" />
 
 
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="79dp"
-        android:layout_height="64dp"
-        android:src="@drawable/ic_puzzle_color"
-        app:layout_constraintStart_toEndOf="@+id/next"
-        app:layout_constraintTop_toTopOf="@+id/next" />
 
-    <ImageView
-        android:layout_width="170dp"
-        android:layout_height="137dp"
 
-        android:layout_marginTop="572dp"
-        android:layout_marginEnd="296dp"
-        android:src="@drawable/ic_puzzle_color"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView3" />
 
-    <ImageView
-        android:id="@+id/imageView2"
-        android:layout_width="86dp"
-        android:layout_height="67dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginBottom="516dp"
-        android:src="@drawable/ic_ppuzle"
-        app:layout_constraintBottom_toTopOf="@+id/imageView"
-        app:layout_constraintStart_toStartOf="parent" />
 
-    <ImageView
-        android:id="@+id/imageView3"
-        android:layout_width="61dp"
-        android:layout_height="51dp"
-        android:layout_marginTop="44dp"
-        android:src="@drawable/ic_puzzle_yellow"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

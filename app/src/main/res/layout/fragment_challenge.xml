@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/purple"
+    android:background="@drawable/ic_backgroundchallenge"
     tools:context=".ui.challenge.ChallengeFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -81,7 +81,7 @@
             android:gravity="center"
             android:textColor="@color/black"
             android:textStyle="bold"
-            android:textSize="@dimen/text3x"
+            android:textSize="@dimen/text2x"
             android:layout_margin="@dimen/margin2x"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -160,7 +160,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/hint_shape"
-        android:layout_margin="@dimen/margin3x"
+        android:layout_margin="@dimen/margin4x"
         android:fontFamily="sans-serif"
         android:text="please solve question before\n time up"
         android:drawableStart="@drawable/ic_error"
