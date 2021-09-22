@@ -41,4 +41,6 @@ object TrivialRepository {
         var difficulty = Constant.EASY
         var type = Types.MULTIPLE
     }
+
+    var position = 0
 }
