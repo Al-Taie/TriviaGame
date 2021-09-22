@@ -6,7 +6,9 @@ import androidx.core.content.ContextCompat.getColor
 import androidx.fragment.app.Fragment
 import com.altaie.triviagame.R
 import com.altaie.triviagame.databinding.FragmentResultBinding
+import com.altaie.triviagame.ui.MainActivity
 import com.altaie.triviagame.ui.base.BaseFragment
+import com.altaie.triviagame.ui.challenge.ChallengeFragment
 import com.altaie.triviagame.ui.home.HomeFragment
 import com.altaie.triviagame.util.Constant
 
@@ -22,7 +24,8 @@ class ResultFragment : BaseFragment<FragmentResultBinding>() {
         }
 
     }
-    private fun resultStatus(result: Int){
+
+    private fun resultStatus(result: Int) {
         when {
             result >= 90 -> {
                 binding.resultStatus.text = "Excellent"
@@ -54,8 +57,15 @@ class ResultFragment : BaseFragment<FragmentResultBinding>() {
     override fun setup() {}
 
     override fun callBack() {
-        binding.startNewGameButton.setOnClickListener {
-            replaceFragment(fragment = HomeFragment())
+        binding.apply {
+            startNewGameButton.setOnClickListener {
+                replaceFragment(fragment = HomeFragment())
+            }
+
+            playAgainBtn.setOnClickListener {
+                (activity as MainActivity).getQuizList()
+                replaceFragment(fragment = ChallengeFragment())
+            }
         }
     }
 

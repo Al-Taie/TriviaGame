@@ -19,10 +19,10 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
     override fun setup() {
         if (categories.isEmpty()) {
             getCategory()
-        }else
+        } else
             activity?.runOnUiThread {
-            binding.categoryRecycler.adapter = CategoryAdapter(categories)
-        }
+                binding.categoryRecycler.adapter = CategoryAdapter(categories)
+            }
 
     }
 
@@ -45,11 +45,12 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
 
             override fun onResponse(call: Call, response: Response) {
                 response.body?.string().let { categorySting ->
-                    val result = Gson().fromJson(categorySting, NationalCategoryResponse::class.java)
+                    val result =
+                        Gson().fromJson(categorySting, NationalCategoryResponse::class.java)
                     val categories = result.categories.map { category ->
                         category.apply {
                             name = name.removePrefix("Entertainment: ")
-                                       .removePrefix("Science: ")
+                                .removePrefix("Science: ")
                         }
 
                     }

@@ -3,7 +3,6 @@ package com.altaie.triviagame.ui
 import android.util.Log
 import android.view.Gravity
 import android.view.LayoutInflater
-import android.view.View
 import com.altaie.triviagame.R
 import com.altaie.triviagame.data.Status
 import com.altaie.triviagame.data.repository.TrivialRepository
@@ -15,7 +14,6 @@ import com.altaie.triviagame.util.slideVisibility
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.disposables.CompositeDisposable
 import io.reactivex.rxjava3.schedulers.Schedulers
-import java.lang.Exception
 
 
 class MainActivity : BaseActivity<ActivityMainBinding>(), ItemListener {
@@ -42,7 +40,7 @@ class MainActivity : BaseActivity<ActivityMainBinding>(), ItemListener {
         disposable.dispose()
     }
 
-    private fun getQuizList() {
+    fun getQuizList() {
         disposable.add(
             TrivialRepository.getQuizList()
                 .subscribeOn(Schedulers.io())
@@ -56,7 +54,7 @@ class MainActivity : BaseActivity<ActivityMainBinding>(), ItemListener {
     }
 
     private fun onQuizResponse(response: Status<NationalQuizResponse>) {
-        when(response){
+        when (response) {
             is Status.Fail -> {
                 binding.fragmentContainer.slideVisibility(visibility = true)
             }
