@@ -5,6 +5,8 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.altaie.triviagame.R
+import com.altaie.triviagame.data.DataManager
+import com.altaie.triviagame.data.DataManager.categories
 import com.altaie.triviagame.data.category.NationalCategoryResponse
 import com.altaie.triviagame.databinding.FragmentHomeBinding
 import com.altaie.triviagame.ui.base.BaseFragment
@@ -15,7 +17,13 @@ import java.io.IOException
 
 class HomeFragment : BaseFragment<FragmentHomeBinding>() {
     override fun setup() {
-        getCategory()
+        if (categories.isEmpty()) {
+            getCategory()
+        }else
+            activity?.runOnUiThread {
+            binding.categoryRecycler.adapter = CategoryAdapter(categories)
+        }
+
     }
 
     override fun callBack() {
@@ -43,7 +51,10 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
                             name = name.removePrefix("Entertainment: ")
                                        .removePrefix("Science: ")
                         }
+
                     }
+                    DataManager.initCategory(categories)
+
 
                     activity?.runOnUiThread {
                         binding.categoryRecycler.adapter = CategoryAdapter(categories)

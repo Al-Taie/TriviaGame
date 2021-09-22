@@ -11,6 +11,9 @@ object DataManager {
         this.quizList.clear()
         this.quizList.addAll(quizList)
     }
+    fun initCategory(category:List<Category>){
+        this.categories.addAll(category)
+    }
 
     var category: String = ""
     val categories get() = categoriesList
