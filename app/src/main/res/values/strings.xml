@@ -40,4 +40,5 @@
     <string name="trivia_game">Trivia Game</string>
     <string name="Levels_of_game">Levels of game</string>
     <string name="Type_of_game">Type of game</string>
+    <string name="start_new_game">Start New Game</string>
 </resources>

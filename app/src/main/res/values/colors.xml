@@ -12,8 +12,11 @@
     <color name="pink">#F2A5B7</color>
     <color name="purple">#735CCF</color>
     <color name="red">#FF4242</color>
+    <color name="dark_red">#FF0000</color>
     <color name="yellow">#FFCA53</color>
     <color name="brandColor">#8027B2</color>
     <color name="green">#A1C6BB</color>
     <color name="blue">#90B4FF</color>
+    <color name="dark_green">#FF4EE167</color>
+    <color name="darkGrey">#676D87</color>
 </resources>
