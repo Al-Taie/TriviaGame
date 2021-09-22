@@ -2,6 +2,7 @@ package com.altaie.triviagame.ui.challenge
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.core.view.children
 import androidx.fragment.app.Fragment
 import com.altaie.triviagame.R
 import com.altaie.triviagame.data.repository.TrivialRepository
@@ -30,7 +31,11 @@ class ChallengeFragment : BaseFragment<FragmentChallengeBinding>(), UpdateAdapte
     }
 
     private fun setOptions() {
+        binding.optionsGroup.children.forEach { button ->
+            button.setOnClickListener {
 
+            }
+        }
     }
 
     override val inflate: (LayoutInflater, ViewGroup?, attachToRoot: Boolean) -> FragmentChallengeBinding

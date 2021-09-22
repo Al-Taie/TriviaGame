@@ -86,64 +86,58 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/category"
-            tools:text="what is the number of teeth \n in a person?"
-            />
+            tools:text="what is the number of teeth \n in a person?" />
 
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/option_one"
-            android:layout_width="match_parent"
-            android:layout_height="48dp"
-            android:text="option1"
-            android:textAllCaps="false"
-            android:background="@drawable/option_button_shape"
-            android:layout_marginHorizontal="@dimen/margin2x"
-            android:layout_marginTop="@dimen/margin3x"
-            app:layout_constraintBottom_toTopOf="@id/option_two"
+        <LinearLayout
+            android:id="@+id/options_group"
+            app:layout_constraintBottom_toBottomOf="@id/guideline"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/question" />
-
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/option_two"
+            app:layout_constraintTop_toBottomOf="@+id/question"
             android:layout_width="match_parent"
-            android:layout_height="48dp"
-            android:text="option2"
-            android:textAllCaps="false"
-            android:background="@drawable/option_button_shape"
-            android:layout_marginHorizontal="@dimen/margin2x"
-            android:layout_marginTop="@dimen/margin2x"
-            app:layout_constraintBottom_toTopOf="@id/option_three"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/option_one" />
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/option_three"
-            android:layout_width="match_parent"
-            android:layout_height="48dp"
-            android:text="option3"
-            android:textAllCaps="false"
-            android:background="@drawable/option_button_shape"
-            android:layout_marginHorizontal="@dimen/margin2x"
-            android:layout_marginTop="@dimen/margin2x"
-            app:layout_constraintBottom_toTopOf="@id/option_four"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/option_two" />
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/option_one"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:text="option1"
+                android:textAllCaps="false"
+                android:background="@drawable/option_button_shape"
+                android:layout_marginHorizontal="@dimen/margin2x"
+                android:layout_marginTop="@dimen/margin3x" />
 
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/option_four"
-            android:layout_width="match_parent"
-            android:layout_height="48dp"
-            android:text="option4"
-            android:textAllCaps="false"
-            android:background="@drawable/option_button_shape"
-            android:layout_marginHorizontal="@dimen/margin2x"
-            android:layout_marginTop="@dimen/margin2x"
-            app:layout_constraintBottom_toTopOf="@id/guideline"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/option_three" />
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/option_two"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:text="option2"
+                android:textAllCaps="false"
+                android:background="@drawable/option_button_shape"
+                android:layout_marginHorizontal="@dimen/margin2x"
+                android:layout_marginTop="@dimen/margin2x" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/option_three"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:text="option3"
+                android:textAllCaps="false"
+                android:background="@drawable/option_button_shape"
+                android:layout_marginHorizontal="@dimen/margin2x"
+                android:layout_marginTop="@dimen/margin2x" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/option_four"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:text="option4"
+                android:textAllCaps="false"
+                android:background="@drawable/option_button_shape"
+                android:layout_marginHorizontal="@dimen/margin2x"
+                android:layout_marginTop="@dimen/margin2x" />
+        </LinearLayout>
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/guideline"
