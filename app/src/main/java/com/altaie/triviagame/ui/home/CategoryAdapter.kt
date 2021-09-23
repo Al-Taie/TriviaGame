@@ -42,5 +42,5 @@ class CategoryAdapter(private val list: List<Category>, private val listener: It
 
     }
     val random  = Random()
-    val randomColor get() = Color.rgb(random.nextInt(255),random.nextInt(255),random.nextInt(255))
+    val randomColor get() = Color.rgb(random.nextInt(255),random.nextInt(100),random.nextInt(255))
 }
