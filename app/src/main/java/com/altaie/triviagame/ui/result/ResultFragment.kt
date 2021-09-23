@@ -22,7 +22,6 @@ class ResultFragment : BaseFragment<FragmentResultBinding>() {
             "$result%".also { it1 -> binding.result.text = it1 }
             result?.let { it1 -> resultStatus(it1.toInt()) }
         }
-
     }
 
     private fun resultStatus(score: Int) {

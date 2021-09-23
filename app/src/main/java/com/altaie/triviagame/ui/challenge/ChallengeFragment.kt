@@ -1,8 +1,8 @@
 package com.altaie.triviagame.ui.challenge
 
 import android.os.Bundle
-import android.os.Handler
-import android.os.Looper
+import android.os.CountDownTimer
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.appcompat.widget.AppCompatButton
@@ -15,24 +15,23 @@ import com.altaie.triviagame.ui.base.BaseFragment
 import com.altaie.triviagame.ui.interfaces.UpdateAdapter
 import com.altaie.triviagame.ui.result.ResultFragment
 import com.altaie.triviagame.util.Constant
+import com.altaie.triviagame.util.Index
 import com.kofigyan.stateprogressbar.StateProgressBar
 import java.util.*
 
 
 class ChallengeFragment : BaseFragment<FragmentChallengeBinding>(), UpdateAdapter {
-    override fun setup() {
-
-    }
+    override fun setup() {}
 
     override fun callBack() {
         bindData()
         setOptions()
+        setTimer()
+        countDown()
         binding.progress.apply {
             checkStateCompleted(true)
             setCurrentStateNumber(StateProgressBar.StateNumber.ONE)
         }
-        setTimer()
-        fragmentChangeByTimer()
     }
 
     private fun setOptions() {
@@ -44,7 +43,7 @@ class ChallengeFragment : BaseFragment<FragmentChallengeBinding>(), UpdateAdapte
                     TrivialRepository.score += 10
                 }
                 checkEnd()
-                setTimer()
+                countDown()
             }
         }
     }
@@ -55,10 +54,11 @@ class ChallengeFragment : BaseFragment<FragmentChallengeBinding>(), UpdateAdapte
     override fun update() {}
 
     private fun checkEnd() {
-        val result = TrivialRepository.score.toString()
-        val position = TrivialRepository.position
-        val fragment = ResultFragment()
+        setTimer()
         val bundle = Bundle()
+        val fragment = ResultFragment()
+        val position = TrivialRepository.position
+        val result = TrivialRepository.score.toString()
 
         bundle.putString(Constant.RESULT_KEY, result)
         fragment.arguments = bundle
@@ -67,10 +67,16 @@ class ChallengeFragment : BaseFragment<FragmentChallengeBinding>(), UpdateAdapte
             TrivialRepository.position++
             bindData()
         } else {
-            TrivialRepository.position = 0
-            TrivialRepository.score = 0
-            replaceFragment(fragment = fragment)
-            TrivialRepository.progressState = 1
+            with(Index) {
+                TrivialRepository.apply {
+                    this.position = ZERO
+                    progressState = ONE
+                    score = ZERO
+
+                }
+                replaceFragment(fragment = fragment)
+            }
+
             binding.progress.setCurrentStateNumber(StateProgressBar.StateNumber.ONE)
         }
 
@@ -82,9 +88,9 @@ class ChallengeFragment : BaseFragment<FragmentChallengeBinding>(), UpdateAdapte
         if (position % 3 == 0) {
             TrivialRepository.progressState++
             val progressState = when (TrivialRepository.progressState) {
-                1 -> StateProgressBar.StateNumber.ONE
-                2 -> StateProgressBar.StateNumber.TWO
-                3 -> StateProgressBar.StateNumber.THREE
+                Index.ONE -> StateProgressBar.StateNumber.ONE
+                Index.TWO -> StateProgressBar.StateNumber.TWO
+                Index.THREE -> StateProgressBar.StateNumber.THREE
                 else -> StateProgressBar.StateNumber.FOUR
             }
             binding.progress.setCurrentStateNumber(progressState)
@@ -106,38 +112,45 @@ class ChallengeFragment : BaseFragment<FragmentChallengeBinding>(), UpdateAdapte
 
     private fun bindData() {
         TrivialRepository.quizzes[TrivialRepository.position].apply {
-            val list = mutableListOf<String>()
-            list.addAll(incorrectAnswers)
-            list.add(correctAnswer)
-            list.shuffle()
+            val list = mutableListOf<String>().apply {
+                addAll(incorrectAnswers)
+                add(correctAnswer)
+                shuffle()
+            }
+
             binding.question.text = question
 
             binding.apply {
-                optionOne.text = list[0]
-                optionTwo.text = list[1]
-                optionThree.text = list[2]
-                optionFour.text = list[3]
+                optionOne.text = list[Index.ZERO]
+                optionTwo.text = list[Index.ONE]
+                optionThree.text = list[Index.TWO]
+                optionFour.text = list[Index.THREE]
             }
         }
     }
 
     private fun setTimer() {
-        val end = Calendar.getInstance()
-        end.add(Calendar.SECOND, 10)
         val start = Calendar.getInstance()
+        val end = Calendar.getInstance()
         start.add(Calendar.SECOND, 0)
+        end.add(Calendar.SECOND, 10)
+
         binding.timer.apply {
-            start(start, end)
-            setOnTickListener {
-                ((it / 1000).toInt()).toString()
-            }
+            this.start(start, end)
+            setOnTickListener { it.div(1000).toString() }
         }
-        fragmentChangeByTimer()
     }
-    private fun fragmentChangeByTimer(){
-        Handler(Looper.getMainLooper()).postDelayed({
-            checkEnd()
-            setTimer()
-        }, 9000)
+
+    private fun countDown() {
+        object : CountDownTimer(9000, 1000) {
+            override fun onTick(millisUntilFinished: Long) {}
+
+            override fun onFinish() {
+                if (TrivialRepository.position != TrivialRepository.lastPosition) {
+                    countDown()
+                }
+                checkEnd()
+            }
+        }.start()
     }
 }
