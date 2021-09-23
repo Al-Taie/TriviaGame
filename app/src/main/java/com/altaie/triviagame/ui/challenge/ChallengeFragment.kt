@@ -32,6 +32,7 @@ class ChallengeFragment : BaseFragment<FragmentChallengeBinding>(), UpdateAdapte
             setCurrentStateNumber(StateProgressBar.StateNumber.ONE)
         }
         setTimer()
+        fragmentChangeByTimer()
     }
 
     private fun setOptions() {
