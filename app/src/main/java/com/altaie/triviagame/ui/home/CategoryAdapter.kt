@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.altaie.triviagame.R
+import com.altaie.triviagame.data.repository.TrivialRepository
 import com.altaie.triviagame.data.response.category.Category
 import com.altaie.triviagame.data.response.quiz.Quiz
 import com.altaie.triviagame.databinding.CategoryCardItemBinding
@@ -32,6 +33,10 @@ class CategoryAdapter(private val list: List<Category>, private val listener: It
                 categoryName.text = name
                 categoryImage.setImageResource(imageId)
                 categoryCard.setOnClickListener { listener?.onClickItem(name = name) }
+                root.setOnClickListener {
+                    TrivialRepository.Settings.category = id.toString()
+                    TrivialRepository.Settings.categoryName = name
+                }
             }
         }
     }
