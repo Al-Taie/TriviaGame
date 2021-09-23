@@ -1,6 +1,8 @@
 package com.altaie.triviagame.ui.challenge
 
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.appcompat.widget.AppCompatButton
@@ -129,5 +131,12 @@ class ChallengeFragment : BaseFragment<FragmentChallengeBinding>(), UpdateAdapte
                 ((it / 1000).toInt()).toString()
             }
         }
+        fragmentChangeByTimer()
+    }
+    private fun fragmentChangeByTimer(){
+        Handler(Looper.getMainLooper()).postDelayed({
+            checkEnd()
+            setTimer()
+        }, 9000)
     }
 }
