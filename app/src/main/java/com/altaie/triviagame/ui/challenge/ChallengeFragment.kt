@@ -14,10 +14,13 @@ import com.altaie.triviagame.ui.interfaces.UpdateAdapter
 import com.altaie.triviagame.ui.result.ResultFragment
 import com.altaie.triviagame.util.Constant
 import com.kofigyan.stateprogressbar.StateProgressBar
+import java.util.*
 
 
 class ChallengeFragment : BaseFragment<FragmentChallengeBinding>(), UpdateAdapter {
-    override fun setup() {}
+    override fun setup() {
+
+    }
 
     override fun callBack() {
         bindData()
@@ -26,6 +29,7 @@ class ChallengeFragment : BaseFragment<FragmentChallengeBinding>(), UpdateAdapte
             checkStateCompleted(true)
             setCurrentStateNumber(StateProgressBar.StateNumber.ONE)
         }
+        setTimer()
     }
 
     private fun setOptions() {
@@ -37,6 +41,7 @@ class ChallengeFragment : BaseFragment<FragmentChallengeBinding>(), UpdateAdapte
                     TrivialRepository.score += 10
                 }
                 checkEnd()
+                setTimer()
             }
         }
     }
@@ -67,7 +72,6 @@ class ChallengeFragment : BaseFragment<FragmentChallengeBinding>(), UpdateAdapte
         }
 
         updateProgressBar()
-
     }
 
     private fun updateProgressBar() {
@@ -91,12 +95,10 @@ class ChallengeFragment : BaseFragment<FragmentChallengeBinding>(), UpdateAdapte
     }
 
     private fun replaceFragment(fragment: Fragment) {
-        activity?.let {
-            it.supportFragmentManager.beginTransaction().apply {
-                replace(R.id.fragment_container, fragment)
-                addToBackStack(null)
-            }.commit()
-        }
+        activity?.supportFragmentManager?.beginTransaction()?.apply {
+            replace(R.id.fragment_container, fragment)
+            addToBackStack(null)
+        }?.commit()
     }
 
     private fun bindData() {
@@ -112,6 +114,19 @@ class ChallengeFragment : BaseFragment<FragmentChallengeBinding>(), UpdateAdapte
                 optionTwo.text = list[1]
                 optionThree.text = list[2]
                 optionFour.text = list[3]
+            }
+        }
+    }
+
+    private fun setTimer() {
+        val end = Calendar.getInstance()
+        end.add(Calendar.SECOND, 10)
+        val start = Calendar.getInstance()
+        start.add(Calendar.SECOND, 0)
+        binding.timer.apply {
+            start(start, end)
+            setOnTickListener {
+                ((it / 1000).toInt()).toString()
             }
         }
     }

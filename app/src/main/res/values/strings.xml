@@ -41,4 +41,6 @@
     <string name="Levels_of_game">Levels of game</string>
     <string name="Type_of_game">Type of game</string>
     <string name="start_new_game">Start New Game</string>
+    <string name="please_solve_question_before_n_time_up">please solve question before\n time up</string>
+    <string name="category">category</string>
 </resources>

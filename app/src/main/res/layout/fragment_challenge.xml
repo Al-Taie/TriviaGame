@@ -13,63 +13,61 @@
         android:layout_height="match_parent"
         android:layout_marginHorizontal="@dimen/margin3x"
         android:layout_marginTop="40dp"
-
         android:layout_marginBottom="100dp"
         android:background="@drawable/challenge_layer"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" >
-
+        app:layout_constraintTop_toTopOf="parent">
 
         <com.kofigyan.stateprogressbar.StateProgressBar
             android:id="@+id/progress"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:spb_currentStateNumber="three"
-            app:spb_maxStateNumber="four"
-            app:spb_stateBackgroundColor="@color/gray"
-            app:spb_stateForegroundColor="@color/purple"
-            app:spb_stateNumberBackgroundColor="@color/white"
-            app:spb_stateNumberForegroundColor="@color/white"
-            app:spb_currentStateDescriptionColor="@color/purple"
-            app:spb_stateDescriptionColor="#808080"
-            app:spb_animateToCurrentProgressState="true"
-            app:spb_checkStateCompleted="true"
             android:layout_marginTop="@dimen/margin2x"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:spb_animateToCurrentProgressState="true"
+            app:spb_checkStateCompleted="true"
+            app:spb_currentStateDescriptionColor="@color/purple"
+            app:spb_currentStateNumber="three"
+            app:spb_maxStateNumber="four"
+            app:spb_stateBackgroundColor="@color/gray"
+            app:spb_stateDescriptionColor="#808080"
+            app:spb_stateForegroundColor="@color/purple"
+            app:spb_stateNumberBackgroundColor="@color/white"
+            app:spb_stateNumberForegroundColor="@color/white" />
 
 
         <com.bcgdv.asia.lib.ticktock.TickTockView
             android:id="@+id/timer"
             android:layout_width="60dp"
             android:layout_height="60dp"
-            android:layout_gravity="center_horizontal"
-            app:tickAutoFitText="true"
-            app:tickMiddleColor="#ffffff"
-            app:tickMoveCounterClockwise="true"
-            app:tickTextColor="@color/black"
-            app:tickText="9"
-            app:tickTextSize="4sp"
+            android:layout_marginTop="@dimen/margin2x"
+            app:layout_constraintBottom_toTopOf="@id/category"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/progress"
+            app:tickCircleDuration="total_time"
             app:tickDotRadius="6dp"
             app:tickEmptyRingColor="@android:color/white"
             app:tickFillRingColor="@color/purple"
+            app:tickMiddleColor="#ffffff"
+            app:tickMoveCounterClockwise="true"
             app:tickRingThickness="3dp"
-            android:layout_marginTop="@dimen/margin2x"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/progress" />
+            app:tickText="9"
+            app:tickTextColor="@color/black"
+            app:tickTextSize="24sp" />
 
         <TextView
             android:id="@+id/category"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="catogory"
+            android:layout_marginTop="@dimen/margin2x"
+            android:text="@string/category"
             android:textColor="@color/gray"
             android:textSize="@dimen/text2x"
-             android:layout_marginTop="@dimen/margin2x"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/timer" />
@@ -78,11 +76,11 @@
             android:id="@+id/question"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_margin="@dimen/margin2x"
             android:gravity="center"
             android:textColor="@color/black"
-            android:textStyle="bold"
             android:textSize="@dimen/text2x"
-            android:layout_margin="@dimen/margin2x"
+            android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/category"
@@ -90,53 +88,53 @@
 
         <LinearLayout
             android:id="@+id/options_group"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
             app:layout_constraintBottom_toBottomOf="@id/guideline"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/question"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
+            app:layout_constraintTop_toBottomOf="@+id/question">
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/option_one"
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
-                android:text="option1"
-                android:textAllCaps="false"
-                android:background="@drawable/option_button_shape"
                 android:layout_marginHorizontal="@dimen/margin2x"
-                android:layout_marginTop="@dimen/margin3x" />
+                android:layout_marginTop="@dimen/margin3x"
+                android:background="@drawable/option_button_shape"
+                android:textAllCaps="false"
+                tools:text="option1" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/option_two"
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
-                android:text="option2"
-                android:textAllCaps="false"
-                android:background="@drawable/option_button_shape"
                 android:layout_marginHorizontal="@dimen/margin2x"
-                android:layout_marginTop="@dimen/margin2x" />
+                android:layout_marginTop="@dimen/margin2x"
+                android:background="@drawable/option_button_shape"
+                android:textAllCaps="false"
+                tools:text="option2" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/option_three"
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
-                android:text="option3"
-                android:textAllCaps="false"
-                android:background="@drawable/option_button_shape"
                 android:layout_marginHorizontal="@dimen/margin2x"
-                android:layout_marginTop="@dimen/margin2x" />
+                android:layout_marginTop="@dimen/margin2x"
+                android:background="@drawable/option_button_shape"
+                android:textAllCaps="false"
+                tools:text="option3" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/option_four"
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
-                android:text="option4"
-                android:textAllCaps="false"
-                android:background="@drawable/option_button_shape"
                 android:layout_marginHorizontal="@dimen/margin2x"
-                android:layout_marginTop="@dimen/margin2x" />
+                android:layout_marginTop="@dimen/margin2x"
+                android:background="@drawable/option_button_shape"
+                android:textAllCaps="false"
+                tools:text="option4" />
         </LinearLayout>
 
         <androidx.constraintlayout.widget.Guideline
@@ -149,18 +147,17 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 
-
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/hint_shape"
         android:layout_margin="@dimen/margin4x"
-        android:fontFamily="sans-serif"
-        android:text="please solve question before\n time up"
+        android:background="@drawable/hint_shape"
         android:drawableStart="@drawable/ic_error"
-        android:textColor="@color/white"
+        android:fontFamily="sans-serif"
         android:gravity="center"
         android:padding="@dimen/padding1x"
+        android:text="@string/please_solve_question_before_n_time_up"
+        android:textColor="@color/white"
         android:textSize="@dimen/txt2x"
 
         app:layout_constraintBottom_toBottomOf="parent"
