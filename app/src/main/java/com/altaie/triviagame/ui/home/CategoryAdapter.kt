@@ -44,9 +44,6 @@ class CategoryAdapter(private val list: List<Category>, private val listener: It
 
     override fun getItemCount() = list.size
 
-    fun setData(newList: List<Quiz>) {
-
-    }
-    val randomColor get()   = Color.rgb(Random.nextInt(108,255), Random.nextInt(20,100), Random.nextInt(105,255))
+    private val randomColor get()   = Color.rgb(Random.nextInt(108,255), Random.nextInt(20,100), Random.nextInt(105,255))
 
 }

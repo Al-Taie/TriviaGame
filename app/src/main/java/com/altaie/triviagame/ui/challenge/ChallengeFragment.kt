@@ -19,6 +19,8 @@ import java.util.*
 
 
 class ChallengeFragment : BaseFragment<FragmentChallengeBinding>() {
+    lateinit var countDownTimer: CountDownTimer
+
     override fun setup() {}
 
     override fun callBack() {
@@ -26,13 +28,12 @@ class ChallengeFragment : BaseFragment<FragmentChallengeBinding>() {
         setOptions()
         setTimer()
         countDown()
+        countDownTimer.start()
         binding.progress.apply {
             checkStateCompleted(true)
             setCurrentStateNumber(StateProgressBar.StateNumber.ONE)
         }
     }
-
-    lateinit var countDownTimer: CountDownTimer
 
     private fun setOptions() {
         binding.optionsGroup.children.forEach { button ->
@@ -131,7 +132,7 @@ class ChallengeFragment : BaseFragment<FragmentChallengeBinding>() {
         val start = Calendar.getInstance()
         val end = Calendar.getInstance()
         start.add(Calendar.SECOND, 0)
-        end.add(Calendar.SECOND, 10)
+        end.add(Calendar.SECOND, 15)
 
         binding.timer.apply {
             this.start(start, end)
@@ -140,7 +141,7 @@ class ChallengeFragment : BaseFragment<FragmentChallengeBinding>() {
     }
 
     private fun countDown() {
-        countDownTimer = object : CountDownTimer(9000, 1000) {
+        countDownTimer = object : CountDownTimer(15000, 1000) {
             override fun onTick(millisUntilFinished: Long) {}
 
             override fun onFinish() {
