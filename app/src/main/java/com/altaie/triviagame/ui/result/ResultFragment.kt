@@ -1,5 +1,6 @@
 package com.altaie.triviagame.ui.result
 
+import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.core.content.ContextCompat.getColor
@@ -11,6 +12,7 @@ import com.altaie.triviagame.ui.base.BaseFragment
 import com.altaie.triviagame.ui.challenge.ChallengeFragment
 import com.altaie.triviagame.ui.home.HomeFragment
 import com.altaie.triviagame.util.Constant
+import java.util.*
 
 
 class ResultFragment : BaseFragment<FragmentResultBinding>() {
@@ -28,38 +30,62 @@ class ResultFragment : BaseFragment<FragmentResultBinding>() {
         binding.apply {
             when {
                 score >= 90 -> {
-                    resultStatus.text = getString(R.string.Excellent)
-                    resultStatus.setTextColor(getColor(requireContext(), R.color.dark_green))
-                    result.setTextColor(getColor(requireContext(), R.color.dark_green))
+                    setResultStatus(
+                        textId = R.string.Excellent,
+                        colorId = R.color.dark_green,
+                        animationId = R.raw.cup
+                    )
                 }
                 score >= 80 -> {
-                    resultStatus.text = getString(R.string.veryGood)
-                    resultStatus.setTextColor(getColor(requireContext(), R.color.purple_700))
-                    result.setTextColor(getColor(requireContext(), R.color.purple_700))
+                    setResultStatus(
+                        textId = R.string.veryGood,
+                        colorId = R.color.purple_700,
+                        animationId = R.raw.trophy
+                    )
                 }
                 score >= 70 -> {
-                    resultStatus.text = getString(R.string.Good)
-                    resultStatus.setTextColor(getColor(requireContext(), R.color.purple_500))
-                    result.setTextColor(getColor(requireContext(), R.color.purple_500))
+                    setResultStatus(
+                        textId = R.string.Good,
+                        colorId = R.color.purple_500,
+                        animationId = R.raw.thumps_up
+                    )
                 }
                 score >= 60 -> {
-                    resultStatus.text = getString(R.string.Medium)
-                    resultStatus.setTextColor(getColor(requireContext(), R.color.blue))
-                    result.setTextColor(getColor(requireContext(), R.color.blue))
+                    setResultStatus(
+                        textId = R.string.Medium,
+                        colorId = R.color.blue,
+                        animationId = R.raw.thumps_up
+                    )
                 }
                 score >= 50 -> {
-                    resultStatus.text = getString(R.string.Passable)
-                    resultStatus.setTextColor(getColor(requireContext(), R.color.darkGrey))
-                    result.setTextColor(getColor(requireContext(), R.color.darkGrey))
+                    setResultStatus(
+                        textId = R.string.Passable,
+                        colorId = R.color.darkGrey,
+                        animationId = R.raw.thumps_up
+                    )
                 }
                 else -> {
-                    resultStatus.text = getString(R.string.Weak)
-                    resultStatus.setTextColor(getColor(requireContext(), R.color.dark_red))
-                    result.setTextColor(getColor(requireContext(), R.color.dark_red))
+                    setResultStatus(
+                        textId = R.string.Weak,
+                        colorId = R.color.dark_red,
+                        animationId = R.raw.cup
+                    )
                 }
             }
         }
     }
+
+
+    fun setResultStatus(textId: Int, colorId: Int, animationId: Int) {
+        binding.apply {
+            val color = getColor(requireContext(), colorId)
+            resultStatus.text = getString(textId)
+            resultStatus.setTextColor(color)
+            result.setTextColor(color)
+            lottieImg.setAnimation(animationId)
+        }
+    }
+
 
     override fun setup() {}
 
