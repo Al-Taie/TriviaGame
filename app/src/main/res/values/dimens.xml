@@ -13,4 +13,5 @@
     <dimen name="txt1x">8dp</dimen>
     <dimen name="padding3x">24dp</dimen>
     <dimen name="margin4x">32dp</dimen>
+    <dimen name="margin5x">40dp</dimen>
 </resources>

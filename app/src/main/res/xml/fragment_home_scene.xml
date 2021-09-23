@@ -4,6 +4,17 @@
 
     <ConstraintSet android:id="@+id/start">
         <Constraint
+            android:id="@+id/logo"
+            android:layout_width="195dp"
+            android:layout_height="195dp"
+            android:layout_marginTop="@dimen/margin2x"
+            android:src="@drawable/logo_a"
+            android:alpha="1"
+            motion:layout_constraintTop_toTopOf="parent"
+            motion:layout_constraintEnd_toEndOf="parent"
+            motion:layout_constraintStart_toStartOf="parent" />
+
+        <Constraint
             android:id="@+id/play_button"
             android:alpha="1"
             motion:layout_constraintTop_toTopOf="parent"
@@ -24,6 +35,7 @@
             android:id="@+id/swipe_animation"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:alpha="1"
             motion:layout_constraintBottom_toBottomOf="parent"
             motion:layout_constraintEnd_toEndOf="parent"
             motion:layout_constraintStart_toStartOf="parent"
@@ -33,8 +45,20 @@
 
     <ConstraintSet android:id="@+id/end">
         <Constraint
+            android:id="@+id/logo"
+            android:layout_width="195dp"
+            android:layout_height="195dp"
+            android:layout_marginTop="@dimen/margin2x"
+            android:src="@drawable/logo"
+            android:alpha="0"
+            motion:layout_constraintTop_toTopOf="parent"
+            motion:layout_constraintEnd_toEndOf="parent"
+            motion:layout_constraintStart_toStartOf="parent" />
+
+        <Constraint
             android:id="@+id/play_button"
             android:alpha="0"
+            android:visibility="gone"
             motion:layout_constraintTop_toTopOf="parent"
             motion:layout_constraintEnd_toEndOf="parent"
             motion:layout_constraintStart_toStartOf="parent"
@@ -56,6 +80,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:visibility="invisible"
+            android:alpha="0"
             motion:layout_constraintBottom_toBottomOf="parent"
             motion:layout_constraintEnd_toEndOf="parent"
             motion:layout_constraintStart_toStartOf="parent" />

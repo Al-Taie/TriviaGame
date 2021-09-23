@@ -31,10 +31,10 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
 
     override fun callBack() {
         binding.apply {
-//            next.setOnClickListener {
-//                val fragment = ChallengeFragment()
-//                replaceFragment(fragment = fragment)
-//            }
+            playButton.setOnClickListener {
+                val fragment = ChallengeFragment()
+                replaceFragment(fragment = fragment)
+            }
         }
     }
 
