@@ -1,5 +1,7 @@
 package com.altaie.triviagame.ui.home
 
+import android.graphics.Color
+import android.provider.DocumentsContract
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -9,10 +11,10 @@ import com.altaie.triviagame.data.response.category.Category
 import com.altaie.triviagame.data.response.quiz.Quiz
 import com.altaie.triviagame.databinding.CategoryCardItemBinding
 import com.altaie.triviagame.ui.interfaces.ItemListener
+import java.util.*
 
 class CategoryAdapter(private val list: List<Category>, private val listener: ItemListener?=null) :
     RecyclerView.Adapter<CategoryAdapter.ViewHolder>() {
-
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val binding = CategoryCardItemBinding.bind(itemView)
     }
@@ -26,6 +28,7 @@ class CategoryAdapter(private val list: List<Category>, private val listener: It
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.binding.apply {
             with(list[position]) {
+                circleLayer.setBackgroundColor(randomColor)
                 categoryName.text = name
                 categoryImage.setImageResource(imageId)
                 categoryCard.setOnClickListener { listener?.onClickItem(name = name) }
@@ -38,4 +41,6 @@ class CategoryAdapter(private val list: List<Category>, private val listener: It
     fun setData(newList: List<Quiz>) {
 
     }
+    val random  = Random()
+    val randomColor get() = Color.rgb(random.nextInt(255),random.nextInt(255),random.nextInt(255))
 }

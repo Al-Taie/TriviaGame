@@ -1,5 +1,6 @@
 package com.altaie.triviagame.ui.home
 
+import android.graphics.drawable.Drawable
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -11,6 +12,8 @@ import com.altaie.triviagame.data.response.category.NationalCategoryResponse
 import com.altaie.triviagame.databinding.FragmentHomeBinding
 import com.altaie.triviagame.ui.base.BaseFragment
 import com.altaie.triviagame.ui.challenge.ChallengeFragment
+import com.altaie.triviagame.util.Constant
+import com.altaie.triviagame.util.Image
 import com.google.gson.Gson
 import okhttp3.*
 import java.io.IOException
@@ -24,6 +27,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
             binding.categoryRecycler.adapter = CategoryAdapter(categories)
         }
 
+
     }
 
     override fun callBack() {
@@ -36,6 +40,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
     }
 
     private fun getCategory() {
+
         val url = "https://opentdb.com/api_category.php"
         val request = Request.Builder().url(url).build()
         OkHttpClient().newCall(request).enqueue(object : Callback {
@@ -45,11 +50,15 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
 
             override fun onResponse(call: Call, response: Response) {
                 response.body?.string().let { categorySting ->
+                    var index=0
                     val result = Gson().fromJson(categorySting, NationalCategoryResponse::class.java)
                     val categories = result.categories.map { category ->
                         category.apply {
                             name = name.removePrefix("Entertainment: ")
                                        .removePrefix("Science: ")
+
+                             imageId=Image.image[index]
+                            index++
                         }
 
                     }

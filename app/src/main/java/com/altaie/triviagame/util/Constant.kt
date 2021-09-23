@@ -1,5 +1,7 @@
 package com.altaie.triviagame.util
 
+import com.altaie.triviagame.R
+
 object Constant {
     const val AMOUNT = "10"
     const val HOST = "opentdb.com"
@@ -20,4 +22,14 @@ object Params {
 object Types {
     const val MULTIPLE = "multiple"
     const val BOOLEAN = "boolean"
+
+}
+
+object Image {
+  val image= listOf(R.drawable.ic_sports,R.drawable.ic_error,R.drawable.ic_sports,R.drawable.ic_error,R.drawable.ic_sports,R.drawable.ic_error,R.drawable.ic_sports,R.drawable.ic_error,R.drawable.ic_sports,R.drawable.ic_error,R.drawable.ic_sports,R.drawable.ic_error,R.drawable.ic_sports,R.drawable.ic_error,R.drawable.ic_sports,R.drawable.ic_error,R.drawable.ic_sports,R.drawable.ic_error,R.drawable.ic_sports
+      ,R.drawable.ic_error,R.drawable.ic_sports,R.drawable.ic_error,R.drawable.ic_sports,R.drawable.ic_error
+  )
+
+
+
 }
