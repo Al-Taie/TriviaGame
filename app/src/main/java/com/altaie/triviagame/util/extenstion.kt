@@ -6,10 +6,6 @@ import android.view.ViewGroup
 import androidx.core.view.isVisible
 import androidx.transition.Slide
 import androidx.transition.TransitionManager
-import io.reactivex.rxjava3.disposables.CompositeDisposable
-import io.reactivex.rxjava3.disposables.Disposable
-
-fun Disposable.addTo(compositeDisposable: CompositeDisposable) = compositeDisposable.add(this)
 
 
 /**

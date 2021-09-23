@@ -1,7 +1,6 @@
 package com.altaie.triviagame.ui.home
 
 import android.graphics.Color
-import android.provider.DocumentsContract
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -9,13 +8,14 @@ import androidx.recyclerview.widget.RecyclerView
 import com.altaie.triviagame.R
 import com.altaie.triviagame.data.repository.TrivialRepository
 import com.altaie.triviagame.data.response.category.Category
-import com.altaie.triviagame.data.response.quiz.Quiz
 import com.altaie.triviagame.databinding.CategoryCardItemBinding
 import com.altaie.triviagame.ui.interfaces.ItemListener
-import java.util.*
 import kotlin.random.Random
 
-class CategoryAdapter(private val list: List<Category>, private val listener: ItemListener?=null) :
+class CategoryAdapter(
+    private val list: List<Category>,
+    private val listener: ItemListener? = null
+) :
     RecyclerView.Adapter<CategoryAdapter.ViewHolder>() {
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val binding = CategoryCardItemBinding.bind(itemView)
@@ -44,6 +44,11 @@ class CategoryAdapter(private val list: List<Category>, private val listener: It
 
     override fun getItemCount() = list.size
 
-    private val randomColor get()   = Color.rgb(Random.nextInt(108,255), Random.nextInt(20,100), Random.nextInt(105,255))
+    private val randomColor
+        get() = Color.rgb(
+            Random.nextInt(108, 255),
+            Random.nextInt(20, 100),
+            Random.nextInt(105, 255)
+        )
 
 }

@@ -14,9 +14,9 @@
         android:layout_height="195dp"
         android:layout_marginTop="@dimen/margin2x"
         android:src="@drawable/logo_a"
-        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline"
@@ -28,16 +28,16 @@
     <com.airbnb.lottie.LottieAnimationView
         android:id="@+id/play_button"
         android:layout_width="wrap_content"
-        android:padding="@dimen/margin5x"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/guideline"
+        android:padding="@dimen/margin5x"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@id/guideline"
         app:layout_constraintStart_toStartOf="@id/guideline"
+        app:layout_constraintTop_toBottomOf="@id/guideline"
         app:lottie_autoPlay="true"
         app:lottie_loop="true"
-        app:lottie_speed="0.95"
-        app:lottie_rawRes="@raw/play" />
+        app:lottie_rawRes="@raw/play"
+        app:lottie_speed="0.95" />
 
 
     <com.airbnb.lottie.LottieAnimationView
@@ -49,8 +49,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:lottie_autoPlay="true"
-        app:lottie_loop="false"
         app:lottie_colorFilter="@color/white"
+        app:lottie_loop="false"
         app:lottie_rawRes="@raw/swipe_up" />
 
     <androidx.constraintlayout.widget.ConstraintLayout

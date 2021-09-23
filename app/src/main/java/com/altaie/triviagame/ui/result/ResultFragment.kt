@@ -2,19 +2,16 @@ package com.altaie.triviagame.ui.result
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import androidx.core.content.ContextCompat.getColor
 import androidx.fragment.app.Fragment
 import com.altaie.triviagame.R
 import com.altaie.triviagame.databinding.FragmentResultBinding
 import com.altaie.triviagame.ui.MainActivity
 import com.altaie.triviagame.ui.base.BaseFragment
-import com.altaie.triviagame.ui.challenge.ChallengeFragment
 import com.altaie.triviagame.ui.home.HomeFragment
 import com.altaie.triviagame.util.Constant
 
 
 class ResultFragment : BaseFragment<FragmentResultBinding>() {
-
     override fun onStart() {
         super.onStart()
         arguments?.let {
@@ -67,14 +64,12 @@ class ResultFragment : BaseFragment<FragmentResultBinding>() {
         }
     }
 
-
     private fun setResultStatus(textId: Int, animationId: Int) {
         binding.apply {
             resultStatus.text = getString(textId)
             lottieImg.setAnimation(animationId)
         }
     }
-
 
     override fun setup() {}
 
@@ -86,14 +81,12 @@ class ResultFragment : BaseFragment<FragmentResultBinding>() {
 
             playAgainBtn.setOnClickListener {
                 (activity as MainActivity).getQuizList()
-                replaceFragment(fragment = ChallengeFragment())
             }
         }
     }
 
     override val inflate: (LayoutInflater, ViewGroup?, attachToRoot: Boolean) -> FragmentResultBinding
         get() = FragmentResultBinding::inflate
-
 
     private fun replaceFragment(fragment: Fragment) {
         activity?.supportFragmentManager?.beginTransaction()?.apply {

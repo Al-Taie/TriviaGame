@@ -11,7 +11,7 @@ import io.reactivex.rxjava3.core.Observable
 
 
 object TrivialRepository {
-     val categoriesList = mutableListOf<Category>()
+    val categoriesList = mutableListOf<Category>()
     private val quizList = mutableListOf<Quiz>()
     var progressState = 1
     var score = 0
