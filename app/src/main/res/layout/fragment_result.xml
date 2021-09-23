@@ -62,17 +62,15 @@
         android:id="@+id/lottie_img"
         android:layout_width="wrap_content"
         android:layout_height="0dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentBottom="true"
-        android:layout_gravity="center_vertical"
-        android:layout_marginBottom="@dimen/margin3x"
+        android:padding="@dimen/padding2x"
+        android:layout_marginTop="@dimen/margin4x"
+        android:layout_marginBottom="@dimen/margin4x"
         app:layout_constraintBottom_toTopOf="@id/play_again_btn"
         app:layout_constraintEnd_toEndOf="@id/result_background"
         app:layout_constraintStart_toStartOf="@id/result_background"
         app:layout_constraintTop_toBottomOf="@id/result_status"
         app:lottie_autoPlay="true"
-        app:lottie_loop="true"
+        app:lottie_loop="false"
         app:lottie_rawRes="@raw/cup" />
 
     <androidx.appcompat.widget.AppCompatButton

@@ -1,6 +1,5 @@
 package com.altaie.triviagame.ui.result
 
-import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.core.content.ContextCompat.getColor
@@ -12,7 +11,6 @@ import com.altaie.triviagame.ui.base.BaseFragment
 import com.altaie.triviagame.ui.challenge.ChallengeFragment
 import com.altaie.triviagame.ui.home.HomeFragment
 import com.altaie.triviagame.util.Constant
-import java.util.*
 
 
 class ResultFragment : BaseFragment<FragmentResultBinding>() {
@@ -21,8 +19,8 @@ class ResultFragment : BaseFragment<FragmentResultBinding>() {
         super.onStart()
         arguments?.let {
             val result = it.getString(Constant.RESULT_KEY)
-            "$result%".also { it1 -> binding.result.text = it1 }
-            result?.let { it1 -> resultStatus(it1.toInt()) }
+            binding.result.text = "$result%"
+            result?.let { score -> resultStatus(score = score.toInt()) }
         }
     }
 
@@ -40,7 +38,7 @@ class ResultFragment : BaseFragment<FragmentResultBinding>() {
                     setResultStatus(
                         textId = R.string.veryGood,
                         colorId = R.color.purple_700,
-                        animationId = R.raw.trophy
+                        animationId = R.raw.cup
                     )
                 }
                 score >= 70 -> {
@@ -53,7 +51,7 @@ class ResultFragment : BaseFragment<FragmentResultBinding>() {
                 score >= 60 -> {
                     setResultStatus(
                         textId = R.string.Medium,
-                        colorId = R.color.blue,
+                        colorId = R.color.darkGrey,
                         animationId = R.raw.thumps_up
                     )
                 }
@@ -68,7 +66,7 @@ class ResultFragment : BaseFragment<FragmentResultBinding>() {
                     setResultStatus(
                         textId = R.string.Weak,
                         colorId = R.color.dark_red,
-                        animationId = R.raw.cup
+                        animationId = R.raw.sad_face
                     )
                 }
             }
