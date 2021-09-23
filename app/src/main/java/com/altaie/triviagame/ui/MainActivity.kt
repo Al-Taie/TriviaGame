@@ -3,12 +3,14 @@ package com.altaie.triviagame.ui
 import android.util.Log
 import android.view.Gravity
 import android.view.LayoutInflater
+import androidx.fragment.app.Fragment
 import com.altaie.triviagame.R
 import com.altaie.triviagame.data.Status
 import com.altaie.triviagame.data.repository.TrivialRepository
 import com.altaie.triviagame.data.response.quiz.NationalQuizResponse
 import com.altaie.triviagame.databinding.ActivityMainBinding
 import com.altaie.triviagame.ui.base.BaseActivity
+import com.altaie.triviagame.ui.challenge.ChallengeFragment
 import com.altaie.triviagame.ui.interfaces.ItemListener
 import com.altaie.triviagame.util.slideVisibility
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
@@ -21,7 +23,6 @@ class MainActivity : BaseActivity<ActivityMainBinding>(), ItemListener {
         get() = R.style.Theme_TriviaGame
 
     override fun setup() {
-        getQuizList()
     }
 
     override fun callBack() {}
@@ -65,7 +66,17 @@ class MainActivity : BaseActivity<ActivityMainBinding>(), ItemListener {
             is Status.Success -> {
                 binding.fragmentContainer.slideVisibility(visibility = true)
                 TrivialRepository.initQuizList(response.data.results)
+                val fragment = ChallengeFragment()
+                replaceFragment(fragment = fragment)
             }
         }
+    }
+
+    private fun replaceFragment(fragment: Fragment) {
+            supportFragmentManager.beginTransaction().apply {
+                replace(R.id.fragment_container, fragment)
+                addToBackStack(null)
+            }.commit()
+
     }
 }
