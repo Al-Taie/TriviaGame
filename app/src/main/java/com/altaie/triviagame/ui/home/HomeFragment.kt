@@ -31,10 +31,10 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
 
     override fun callBack() {
         binding.apply {
-            next.setOnClickListener {
-                val fragment = ChallengeFragment()
-                replaceFragment(fragment = fragment)
-            }
+//            next.setOnClickListener {
+//                val fragment = ChallengeFragment()
+//                replaceFragment(fragment = fragment)
+//            }
         }
     }
 
@@ -53,15 +53,19 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
                     val categories = result.categories.map { category ->
                         category.apply {
                             name = name.removePrefix("Entertainment: ")
-                                       .removePrefix("Science: ")
+                                .removePrefix("Science: ")
 
-                             imageId=Image.image[index]
+                            imageId=Image.image[index]
                             index++
                         }
 
-                    }
-                    TrivialRepository.initCategoriesList(categories)
+                    }.toMutableList()
 
+                    val temp = categories[0]
+                    categories[0] = categories[1]
+                    categories[1] = temp
+
+                    TrivialRepository.initCategoriesList(categories)
 
                     activity?.runOnUiThread {
                         binding.categoryRecycler.adapter = CategoryAdapter(categories)
