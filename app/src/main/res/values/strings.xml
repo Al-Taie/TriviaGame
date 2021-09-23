@@ -43,4 +43,10 @@
     <string name="start_new_game">Start New Game</string>
     <string name="please_solve_question_before_n_time_up">please solve question before\n time up</string>
     <string name="category">category</string>
+    <string name="Excellent">Excellent</string>
+    <string name="veryGood">Very Good</string>
+    <string name="Good">Good</string>
+    <string name="Medium">Medium</string>
+    <string name="Passable">Passable</string>
+    <string name="Weak">Weak</string>
 </resources>

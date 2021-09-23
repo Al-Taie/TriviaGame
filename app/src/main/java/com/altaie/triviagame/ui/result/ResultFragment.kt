@@ -19,7 +19,7 @@ class ResultFragment : BaseFragment<FragmentResultBinding>() {
         super.onStart()
         arguments?.let {
             val result = it.getString(Constant.RESULT_KEY)
-            binding.result.text = "$result%"
+            "$result%".also { it1 -> binding.result.text = it1 }
             result?.let { it1 -> resultStatus(it1.toInt()) }
         }
 
@@ -29,32 +29,32 @@ class ResultFragment : BaseFragment<FragmentResultBinding>() {
         binding.apply {
             when {
                 score >= 90 -> {
-                    resultStatus.text = "Excellent"
+                    resultStatus.text = getString(R.string.Excellent)
                     resultStatus.setTextColor(getColor(requireContext(), R.color.dark_green))
                     result.setTextColor(getColor(requireContext(), R.color.dark_green))
                 }
                 score >= 80 -> {
-                    resultStatus.text = "Very Good"
+                    resultStatus.text = getString(R.string.veryGood)
                     resultStatus.setTextColor(getColor(requireContext(), R.color.purple_700))
                     result.setTextColor(getColor(requireContext(), R.color.purple_700))
                 }
                 score >= 70 -> {
-                    resultStatus.text = "Good"
+                    resultStatus.text = getString(R.string.Good)
                     resultStatus.setTextColor(getColor(requireContext(), R.color.purple_500))
                     result.setTextColor(getColor(requireContext(), R.color.purple_500))
                 }
                 score >= 60 -> {
-                    resultStatus.text = "Medium"
+                    resultStatus.text = getString(R.string.Medium)
                     resultStatus.setTextColor(getColor(requireContext(), R.color.blue))
                     result.setTextColor(getColor(requireContext(), R.color.blue))
                 }
                 score >= 50 -> {
-                    resultStatus.text = "Passable"
+                    resultStatus.text = getString(R.string.Passable)
                     resultStatus.setTextColor(getColor(requireContext(), R.color.darkGrey))
                     result.setTextColor(getColor(requireContext(), R.color.darkGrey))
                 }
                 else -> {
-                    resultStatus.text = "Weak"
+                    resultStatus.text = getString(R.string.Weak)
                     resultStatus.setTextColor(getColor(requireContext(), R.color.dark_red))
                     result.setTextColor(getColor(requireContext(), R.color.dark_red))
                 }
@@ -82,11 +82,9 @@ class ResultFragment : BaseFragment<FragmentResultBinding>() {
 
 
     private fun replaceFragment(fragment: Fragment) {
-        activity?.let {
-            it.supportFragmentManager.beginTransaction().apply {
-                replace(R.id.fragment_container, fragment)
-                addToBackStack(null)
-            }.commit()
-        }
+        activity?.supportFragmentManager?.beginTransaction()?.apply {
+            replace(R.id.fragment_container, fragment)
+            addToBackStack(null)
+        }?.commit()
     }
 }
