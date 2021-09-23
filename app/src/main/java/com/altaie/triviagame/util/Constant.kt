@@ -1,5 +1,7 @@
 package com.altaie.triviagame.util
 
+import com.altaie.triviagame.R
+
 object Constant {
     const val RESULT_KEY = "RESULT"
     const val AMOUNT = "10"
@@ -21,6 +23,16 @@ object Params {
 object Types {
     const val MULTIPLE = "multiple"
     const val BOOLEAN = "boolean"
+
+}
+
+object Image {
+  val image= listOf(R.drawable.ic_sports,R.drawable.ic_error,R.drawable.ic_sports,R.drawable.ic_error,R.drawable.ic_sports,R.drawable.ic_error,R.drawable.ic_sports,R.drawable.ic_error,R.drawable.ic_sports,R.drawable.ic_error,R.drawable.ic_sports,R.drawable.ic_error,R.drawable.ic_sports,R.drawable.ic_error,R.drawable.ic_sports,R.drawable.ic_error,R.drawable.ic_sports,R.drawable.ic_error,R.drawable.ic_sports
+      ,R.drawable.ic_error,R.drawable.ic_sports,R.drawable.ic_error,R.drawable.ic_sports,R.drawable.ic_error
+  )
+
+
+
 }
 
 object Index {
