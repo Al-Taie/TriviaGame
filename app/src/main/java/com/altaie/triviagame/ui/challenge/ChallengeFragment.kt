@@ -20,7 +20,7 @@ import com.kofigyan.stateprogressbar.StateProgressBar
 import java.util.*
 
 
-class ChallengeFragment : BaseFragment<FragmentChallengeBinding>(), UpdateAdapter {
+class ChallengeFragment : BaseFragment<FragmentChallengeBinding>() {
     override fun setup() {}
 
     override fun callBack() {
@@ -34,6 +34,8 @@ class ChallengeFragment : BaseFragment<FragmentChallengeBinding>(), UpdateAdapte
         }
     }
 
+    lateinit var countDownTimer: CountDownTimer
+
     private fun setOptions() {
         binding.optionsGroup.children.forEach { button ->
             button.setOnClickListener {
@@ -43,15 +45,14 @@ class ChallengeFragment : BaseFragment<FragmentChallengeBinding>(), UpdateAdapte
                     TrivialRepository.score += 10
                 }
                 checkEnd()
-                countDown()
+                countDownTimer.cancel()
+                countDownTimer.start()
             }
         }
     }
 
     override val inflate: (LayoutInflater, ViewGroup?, attachToRoot: Boolean) -> FragmentChallengeBinding
         get() = FragmentChallengeBinding::inflate
-
-    override fun update() {}
 
     private fun checkEnd() {
         setTimer()
@@ -142,15 +143,15 @@ class ChallengeFragment : BaseFragment<FragmentChallengeBinding>(), UpdateAdapte
     }
 
     private fun countDown() {
-        object : CountDownTimer(9000, 1000) {
+        countDownTimer = object : CountDownTimer(9000, 1000) {
             override fun onTick(millisUntilFinished: Long) {}
 
             override fun onFinish() {
                 if (TrivialRepository.position != TrivialRepository.lastPosition) {
-                    countDown()
+                    countDownTimer.start()
                 }
                 checkEnd()
             }
-        }.start()
+        }
     }
 }
