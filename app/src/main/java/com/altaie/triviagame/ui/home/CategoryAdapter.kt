@@ -13,6 +13,7 @@ import com.altaie.triviagame.data.response.quiz.Quiz
 import com.altaie.triviagame.databinding.CategoryCardItemBinding
 import com.altaie.triviagame.ui.interfaces.ItemListener
 import java.util.*
+import kotlin.random.Random
 
 class CategoryAdapter(private val list: List<Category>, private val listener: ItemListener?=null) :
     RecyclerView.Adapter<CategoryAdapter.ViewHolder>() {
@@ -46,6 +47,6 @@ class CategoryAdapter(private val list: List<Category>, private val listener: It
     fun setData(newList: List<Quiz>) {
 
     }
-    val random  = Random()
-    val randomColor get() = Color.rgb(random.nextInt(255),random.nextInt(100),random.nextInt(255))
+    val randomColor get()   = Color.rgb(Random.nextInt(108,255), Random.nextInt(20,100), Random.nextInt(105,255))
+
 }
