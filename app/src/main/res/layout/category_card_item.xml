@@ -7,34 +7,30 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     app:cardCornerRadius="8dp"
     app:cardElevation="8dp"
-    android:layout_margin="8dp"
-    android:minWidth="80dp"
-    android:minHeight="80dp"
-    android:orientation="vertical"
+    android:layout_marginEnd="-4dp"
     android:layout_width="100dp"
+    android:layout_gravity="center"
     android:layout_height="wrap_content">
 
-
     <com.google.android.material.imageview.ShapeableImageView
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-
+        android:id="@+id/circle_layer"
+        android:layout_width="75dp"
+        android:layout_height="75dp"
+        app:shapeAppearanceOverlay="@style/Percent50"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-        />
     <ImageView
         android:id="@+id/category_image"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_gravity="center"
-
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="@id/circle_layer"
+        app:layout_constraintEnd_toEndOf="@id/circle_layer"
+        app:layout_constraintStart_toStartOf="@id/circle_layer"
+        app:layout_constraintTop_toTopOf="@id/circle_layer"
         tools:src="@tools:sample/avatars" />
 
     <TextView
@@ -50,7 +46,7 @@
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-         app:layout_constraintTop_toBottomOf="@id/category_image"
+         app:layout_constraintTop_toBottomOf="@id/circle_layer"
          tools:text="Science" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
