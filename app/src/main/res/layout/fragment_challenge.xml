@@ -77,13 +77,15 @@
             android:id="@+id/question"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="@dimen/margin2x"
             android:gravity="center"
+            android:layout_margin="8dp"
+
+            android:padding="@dimen/padding1x"
             android:textColor="@color/black"
             android:textSize="@dimen/text2x"
             android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="@id/constraintLayout"
+            app:layout_constraintStart_toStartOf="@id/constraintLayout"
             app:layout_constraintTop_toBottomOf="@id/category"
             tools:text="what is the number of teeth \n in a person?" />
 

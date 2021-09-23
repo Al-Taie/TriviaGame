@@ -66,7 +66,7 @@ class ResultFragment : BaseFragment<FragmentResultBinding>() {
                     setResultStatus(
                         textId = R.string.Weak,
                         colorId = R.color.dark_red,
-                        animationId = R.raw.sad_face
+                        animationId = R.raw.loser
                     )
                 }
             }
