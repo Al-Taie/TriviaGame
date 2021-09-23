@@ -1,6 +1,7 @@
 package com.altaie.triviagame.ui
 
-import android.util.Log
+import android.os.Handler
+import android.os.Looper
 import android.view.Gravity
 import android.view.LayoutInflater
 import androidx.fragment.app.Fragment
@@ -51,32 +52,46 @@ class MainActivity : BaseActivity<ActivityMainBinding>(), ItemListener {
     }
 
     private fun onError(e: Throwable) {
-        Log.v("MAIN_ACTIVITY", e.message.toString())
+        binding.loading.apply {
+            setAnimation(R.raw.no_connection)
+            playAnimation()
+
+            Handler(Looper.getMainLooper()).postDelayed({
+                slideVisibility(visibility = false)
+                binding.fragmentContainer.slideVisibility(visibility = true)
+            }, 4200L)
+        }
     }
 
     private fun onQuizResponse(response: Status<NationalQuizResponse>) {
         when (response) {
             is Status.Fail -> {
+                binding.loading.slideVisibility(visibility = false)
                 binding.fragmentContainer.slideVisibility(visibility = true)
             }
             is Status.Loading -> {
-//                binding.progressLoading.show()
+                binding.loading.apply {
+                    setAnimation(R.raw.loading)
+                    playAnimation()
+                    slideVisibility(visibility = true)
+                }
                 binding.fragmentContainer.slideVisibility(visibility = false, gravity = Gravity.TOP)
             }
             is Status.Success -> {
-                binding.fragmentContainer.slideVisibility(visibility = true)
                 TrivialRepository.initQuizList(response.data.results)
                 val fragment = ChallengeFragment()
                 replaceFragment(fragment = fragment)
+                binding.loading.slideVisibility(visibility = false)
+                binding.fragmentContainer.slideVisibility(visibility = true)
             }
         }
     }
 
     private fun replaceFragment(fragment: Fragment) {
-            supportFragmentManager.beginTransaction().apply {
-                replace(R.id.fragment_container, fragment)
-                addToBackStack(null)
-            }.commit()
+        supportFragmentManager.beginTransaction().apply {
+            replace(R.id.fragment_container, fragment)
+            addToBackStack(null)
+        }.commit()
 
     }
 }
