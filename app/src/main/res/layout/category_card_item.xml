@@ -7,7 +7,7 @@
     android:layout_width="125dp"
     android:layout_height="175dp"
     android:layout_gravity="center"
-    android:background="@color/white">
+    android:background="@drawable/catogery_clicked_shape">
 
     <com.google.android.material.imageview.ShapeableImageView
         android:id="@+id/circle_layer"
