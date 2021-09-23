@@ -1,177 +1,42 @@
 <?xml version="1.0" encoding="utf-8"?>
 <MotionScene xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:motion="http://schemas.android.com/apk/res-auto">
+
+    <Transition
+        motion:constraintSetEnd="@+id/end"
+        motion:constraintSetStart="@id/start"
+        motion:autoTransition="animateToStart"
+        motion:duration="700">
+
+    </Transition>
+
+
 
     <ConstraintSet android:id="@+id/start">
         <Constraint
-            android:id="@+id/progress"
+            android:id="@+id/constraintLayout"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/margin2x"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:spb_animateToCurrentProgressState="true"
-            app:spb_checkStateCompleted="true"
-            app:spb_currentStateDescriptionColor="@color/purple"
-            app:spb_currentStateNumber="three"
-            app:spb_maxStateNumber="four"
-            app:spb_stateBackgroundColor="@color/gray"
-            app:spb_stateDescriptionColor="#808080"
-            app:spb_stateForegroundColor="@color/purple"
-            app:spb_stateNumberBackgroundColor="@color/white"
-            app:spb_stateNumberForegroundColor="@color/white" />
-
-        <Constraint
-            android:id="@+id/timer"
-            android:layout_width="60dp"
-            android:layout_height="60dp"
-            android:layout_marginTop="@dimen/margin2x"
-            app:layout_constraintBottom_toTopOf="@id/category"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/progress"
-            app:tickCircleDuration="total_time"
-            app:tickDotRadius="6dp"
-            app:tickEmptyRingColor="@android:color/white"
-            app:tickFillRingColor="@color/purple"
-            app:tickMiddleColor="#ffffff"
-            app:tickMoveCounterClockwise="true"
-            app:tickRingThickness="3dp"
-            app:tickText="9"
-            app:tickTextColor="@color/black"
-            app:tickTextSize="24sp" />
-
-        <Constraint
-            android:id="@+id/category"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/margin2x"
-            android:text="@string/category"
-            android:textColor="@color/gray"
-            android:textSize="@dimen/text2x"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/timer" />
-
-        <Constraint
-            android:id="@+id/question"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="@dimen/margin2x"
-            android:gravity="center"
-            android:textColor="@color/black"
-            android:textSize="@dimen/text2x"
-            android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/category" />
-
-        <Constraint
-            android:id="@+id/options_group"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            app:layout_constraintBottom_toBottomOf="@id/guideline"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/question"/>
-
-        <Constraint
-            android:id="@+id/guideline"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            app:layout_constraintGuide_begin="502dp" />
+            android:layout_height="match_parent"
+            android:layout_marginLeft="24dp"
+            android:layout_marginTop="40dp"
+            android:layout_marginRight="24dp"
+            android:layout_marginBottom="100dp"
+            motion:layout_constraintBottom_toBottomOf="parent"
+            motion:layout_constraintLeft_toLeftOf="parent"
+            motion:layout_constraintRight_toRightOf="parent"
+            motion:layout_constraintTop_toTopOf="parent" />
     </ConstraintSet>
 
     <ConstraintSet android:id="@+id/end">
         <Constraint
-            android:id="@+id/progress"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/margin2x"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:spb_animateToCurrentProgressState="true"
-            app:spb_checkStateCompleted="true"
-            app:spb_currentStateDescriptionColor="@color/purple"
-            app:spb_currentStateNumber="three"
-            app:spb_maxStateNumber="four"
-            app:spb_stateBackgroundColor="@color/gray"
-            app:spb_stateDescriptionColor="#808080"
-            app:spb_stateForegroundColor="@color/purple"
-            app:spb_stateNumberBackgroundColor="@color/white"
-            app:spb_stateNumberForegroundColor="@color/white" />
-
-        <Constraint
-            android:id="@+id/timer"
-            android:layout_width="60dp"
-            android:layout_height="60dp"
-            android:layout_marginTop="@dimen/margin2x"
-            app:layout_constraintBottom_toTopOf="@id/category"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/progress"
-            app:tickCircleDuration="total_time"
-            app:tickDotRadius="6dp"
-            app:tickEmptyRingColor="@android:color/white"
-            app:tickFillRingColor="@color/purple"
-            app:tickMiddleColor="#ffffff"
-            app:tickMoveCounterClockwise="true"
-            app:tickRingThickness="3dp"
-            app:tickText="9"
-            app:tickTextColor="@color/black"
-            app:tickTextSize="24sp" />
-
-        <Constraint
-            android:id="@+id/category"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/margin2x"
-            android:text="@string/category"
-            android:textColor="@color/gray"
-            android:textSize="@dimen/text2x"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/timer" />
-
-        <Constraint
-            android:id="@+id/question"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="@dimen/margin2x"
-            android:gravity="center"
-            android:textColor="@color/black"
-            android:textSize="@dimen/text2x"
-            android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/category" />
-
-        <Constraint
-            android:id="@+id/options_group"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            app:layout_constraintBottom_toBottomOf="@id/guideline"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/question"/>
-
-        <Constraint
-            android:id="@+id/guideline"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            app:layout_constraintGuide_begin="502dp" />
+            android:id="@+id/constraintLayout"
+            android:alpha="0.5"
+            android:scaleX="0.5"
+            android:scaleY="0.5"
+            motion:layout_constraintLeft_toLeftOf="parent"
+            motion:layout_constraintRight_toRightOf="parent"
+            motion:layout_constraintTop_toTopOf="parent" />
     </ConstraintSet>
 
-    <Transition
-        app:constraintSetEnd="@id/end"
-        app:constraintSetStart="@+id/start"
-        app:duration="2000">
-        <OnSwipe app:touchAnchorId="@+id/constraintLayout" />
-    </Transition>
+
 </MotionScene>

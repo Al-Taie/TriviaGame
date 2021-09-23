@@ -1,20 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.motion.widget.MotionLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/ic_backgroundchallenge"
-    tools:context=".ui.challenge.ChallengeFragment">
+    app:layoutDescription="@xml/fragment_challenge_scene"
+    tools:context=".ui.challenge.ChallengeFragment"
+    android:id="@+id/motion_layout">
 
-    <androidx.constraintlayout.motion.widget.MotionLayout
+
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginHorizontal="@dimen/margin3x"
         android:layout_marginTop="40dp"
         android:layout_marginBottom="100dp"
-        app:layoutDescription="@xml/fragment_challenge_scene"
         android:background="@drawable/challenge_layer"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -147,15 +149,16 @@
             android:orientation="horizontal"
             app:layout_constraintGuide_begin="502dp" />
 
-    </androidx.constraintlayout.motion.widget.MotionLayout>
-
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <TextView
+        android:id="@+id/hint_text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/margin4x"
         android:background="@drawable/home_layer_shape"
         android:drawableStart="@drawable/ic_error"
+
         android:fontFamily="sans-serif"
         android:gravity="center"
         android:padding="@dimen/padding1x"
@@ -164,7 +167,8 @@
         android:textSize="@dimen/txt2x"
 
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/constraintLayout" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+         />
+</androidx.constraintlayout.motion.widget.MotionLayout>
+

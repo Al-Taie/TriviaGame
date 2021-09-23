@@ -37,6 +37,7 @@ class ChallengeFragment : BaseFragment<FragmentChallengeBinding>() {
     private fun setOptions() {
         binding.optionsGroup.children.forEach { button ->
             button.setOnClickListener {
+                binding.motionLayout.transitionToEnd()
                 val correctAnswer = TrivialRepository.currentQuestion.correctAnswer
                 val currentAnswer = (button as AppCompatButton).text
                 if (correctAnswer == currentAnswer) {
@@ -146,6 +147,7 @@ class ChallengeFragment : BaseFragment<FragmentChallengeBinding>() {
                 if (TrivialRepository.position != TrivialRepository.lastPosition) {
                     countDownTimer.start()
                 }
+                binding.motionLayout.transitionToEnd()
                 checkEnd()
             }
         }
