@@ -48,15 +48,15 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
 
     private fun initDifficultyRadioButton() {
         binding.apply {
-            Easy.setOnClickListener {
-                TrivialRepository.Settings.difficulty = Constant.EASY
-            }
-            middle.setOnClickListener {
-                TrivialRepository.Settings.difficulty = Constant.MEDIUM
-            }
-            Difficult.setOnClickListener {
-                TrivialRepository.Settings.difficulty = Constant.HARD
-            }
+//            Easy.setOnClickListener {
+//                TrivialRepository.Settings.difficulty = Constant.EASY
+//            }
+//            middle.setOnClickListener {
+//                TrivialRepository.Settings.difficulty = Constant.MEDIUM
+//            }
+//            Difficult.setOnClickListener {
+//                TrivialRepository.Settings.difficulty = Constant.HARD
+//            }
         }
     }
 
