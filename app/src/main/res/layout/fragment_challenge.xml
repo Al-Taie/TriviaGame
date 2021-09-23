@@ -7,13 +7,14 @@
     android:background="@drawable/ic_backgroundchallenge"
     tools:context=".ui.challenge.ChallengeFragment">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <androidx.constraintlayout.motion.widget.MotionLayout
         android:id="@+id/constraintLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginHorizontal="@dimen/margin3x"
         android:layout_marginTop="40dp"
         android:layout_marginBottom="100dp"
+        app:layoutDescription="@xml/fragment_challenge_scene"
         android:background="@drawable/challenge_layer"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -144,7 +145,7 @@
             android:orientation="horizontal"
             app:layout_constraintGuide_begin="502dp" />
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.motion.widget.MotionLayout>
 
 
     <TextView

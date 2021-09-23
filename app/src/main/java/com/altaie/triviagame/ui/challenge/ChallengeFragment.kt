@@ -2,7 +2,6 @@ package com.altaie.triviagame.ui.challenge
 
 import android.os.Bundle
 import android.os.CountDownTimer
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.appcompat.widget.AppCompatButton
@@ -12,7 +11,6 @@ import com.altaie.triviagame.R
 import com.altaie.triviagame.data.repository.TrivialRepository
 import com.altaie.triviagame.databinding.FragmentChallengeBinding
 import com.altaie.triviagame.ui.base.BaseFragment
-import com.altaie.triviagame.ui.interfaces.UpdateAdapter
 import com.altaie.triviagame.ui.result.ResultFragment
 import com.altaie.triviagame.util.Constant
 import com.altaie.triviagame.util.Index
@@ -73,14 +71,11 @@ class ChallengeFragment : BaseFragment<FragmentChallengeBinding>() {
                     this.position = ZERO
                     progressState = ONE
                     score = ZERO
-
                 }
                 replaceFragment(fragment = fragment)
             }
-
             binding.progress.setCurrentStateNumber(StateProgressBar.StateNumber.ONE)
         }
-
         updateProgressBar()
     }
 
@@ -120,6 +115,7 @@ class ChallengeFragment : BaseFragment<FragmentChallengeBinding>() {
             }
 
             binding.question.text = question
+            binding.category.text = TrivialRepository.Settings.categoryName
 
             binding.apply {
                 optionOne.text = list[Index.ZERO]
