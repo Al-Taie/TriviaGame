@@ -30,42 +30,36 @@ class ResultFragment : BaseFragment<FragmentResultBinding>() {
                 score >= 90 -> {
                     setResultStatus(
                         textId = R.string.Excellent,
-                        colorId = R.color.dark_green,
                         animationId = R.raw.cup
                     )
                 }
                 score >= 80 -> {
                     setResultStatus(
                         textId = R.string.veryGood,
-                        colorId = R.color.purple_700,
                         animationId = R.raw.cup
                     )
                 }
                 score >= 70 -> {
                     setResultStatus(
                         textId = R.string.Good,
-                        colorId = R.color.purple_500,
                         animationId = R.raw.thumps_up
                     )
                 }
                 score >= 60 -> {
                     setResultStatus(
                         textId = R.string.Medium,
-                        colorId = R.color.darkGrey,
                         animationId = R.raw.thumps_up
                     )
                 }
                 score >= 50 -> {
                     setResultStatus(
                         textId = R.string.Passable,
-                        colorId = R.color.darkGrey,
                         animationId = R.raw.thumps_up
                     )
                 }
                 else -> {
                     setResultStatus(
                         textId = R.string.Weak,
-                        colorId = R.color.dark_red,
                         animationId = R.raw.sad_face
                     )
                 }
@@ -74,12 +68,9 @@ class ResultFragment : BaseFragment<FragmentResultBinding>() {
     }
 
 
-    fun setResultStatus(textId: Int, colorId: Int, animationId: Int) {
+    private fun setResultStatus(textId: Int, animationId: Int) {
         binding.apply {
-            val color = getColor(requireContext(), colorId)
             resultStatus.text = getString(textId)
-            resultStatus.setTextColor(color)
-            result.setTextColor(color)
             lottieImg.setAnimation(animationId)
         }
     }

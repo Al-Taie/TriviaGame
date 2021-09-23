@@ -55,6 +55,7 @@ object Client {
 
         return if (response.isSuccessful) {
             Gson().fromJson(response.body?.string(), NationalQuizResponse::class.java).run {
+                Log.v("result",this.toString())
                 Status.Success(this)
             }
         } else {

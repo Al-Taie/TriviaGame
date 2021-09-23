@@ -40,23 +40,23 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
         initDifficultyRadioButton()
         binding.apply {
             playButton.setOnClickListener {
-                val fragment = ChallengeFragment()
-                replaceFragment(fragment = fragment)
+                (activity as MainActivity).getQuizList()
+
             }
         }
     }
 
     private fun initDifficultyRadioButton() {
         binding.apply {
-//            Easy.setOnClickListener {
-//                TrivialRepository.Settings.difficulty = Constant.EASY
-//            }
-//            middle.setOnClickListener {
-//                TrivialRepository.Settings.difficulty = Constant.MEDIUM
-//            }
-//            Difficult.setOnClickListener {
-//                TrivialRepository.Settings.difficulty = Constant.HARD
-//            }
+            chipEasy.setOnClickListener {
+                TrivialRepository.Settings.difficulty = Constant.EASY
+            }
+            chipMedium.setOnClickListener {
+                TrivialRepository.Settings.difficulty = Constant.MEDIUM
+            }
+            chipHard.setOnClickListener {
+                TrivialRepository.Settings.difficulty = Constant.HARD
+            }
         }
     }
 
