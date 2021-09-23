@@ -115,6 +115,7 @@ class ChallengeFragment : BaseFragment<FragmentChallengeBinding>() {
             }
 
             binding.question.text = question
+            binding.category.text = TrivialRepository.Settings.categoryName
 
             binding.apply {
                 optionOne.text = list[Index.ZERO]

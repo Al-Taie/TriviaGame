@@ -10,6 +10,8 @@ object Constant {
     const val SCHEMA = "https"
     const val TYPE = "multiple"
     const val EASY = "easy"
+    const val MEDIUM = "medium"
+    const val HARD = "hard"
 }
 
 object Params {

@@ -15,7 +15,6 @@ object TrivialRepository {
     private val quizList = mutableListOf<Quiz>()
     var progressState = 1
     var score = 0
-
     val currentQuestion get() = quizList[position]
 
     fun initQuizList(quizList: List<Quiz>?) {
@@ -41,7 +40,8 @@ object TrivialRepository {
     }
 
     object Settings {
-        var category = ""
+        var category: String = "9"
+        var categoryName: String = "General Knowledge"
         var difficulty = Constant.EASY
         var type = Types.MULTIPLE
     }
