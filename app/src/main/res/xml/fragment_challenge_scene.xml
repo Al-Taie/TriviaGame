@@ -6,47 +6,10 @@
         motion:constraintSetEnd="@+id/end"
         motion:constraintSetStart="@id/start"
         motion:autoTransition="animateToStart"
-        motion:duration="1000">
-        <KeyFrameSet>
+        motion:duration="700">
 
-        </KeyFrameSet>
-
-        <OnClick motion:targetId="@+id/option_one" />
     </Transition>
-    <Transition
-        motion:constraintSetEnd="@+id/end"
-        motion:constraintSetStart="@id/start"
 
-
-        motion:duration="1000">
-        <KeyFrameSet>
-
-        </KeyFrameSet>
-
-        <OnClick motion:targetId="@+id/option_two" />
-    </Transition>
-    <Transition
-        motion:constraintSetEnd="@+id/end"
-        motion:constraintSetStart="@id/start"
-
-        motion:duration="1000">
-        <KeyFrameSet>
-
-        </KeyFrameSet>
-
-        <OnClick motion:targetId="@+id/option_three" />
-    </Transition>
-    <Transition
-        motion:constraintSetEnd="@+id/end"
-        motion:constraintSetStart="@id/start"
-
-        motion:duration="1000">
-        <KeyFrameSet>
-
-        </KeyFrameSet>
-
-        <OnClick motion:targetId="@+id/option_four" />
-    </Transition>
 
 
     <ConstraintSet android:id="@+id/start">

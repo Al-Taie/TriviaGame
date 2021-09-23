@@ -6,7 +6,8 @@
     android:layout_height="match_parent"
     android:background="@drawable/ic_backgroundchallenge"
     app:layoutDescription="@xml/fragment_challenge_scene"
-    tools:context=".ui.challenge.ChallengeFragment">
+    tools:context=".ui.challenge.ChallengeFragment"
+    android:id="@+id/motion_layout">
 
 
     <androidx.constraintlayout.widget.ConstraintLayout
