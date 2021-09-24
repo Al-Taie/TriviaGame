@@ -70,7 +70,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
                     }.toMutableList()
 
                     val temp = categories[0]
-                    categories[0] = categories[1]
+                    categories[0] = categories[10]
                     categories[10] = temp
 
                     TrivialRepository.initCategoriesList(categories)
